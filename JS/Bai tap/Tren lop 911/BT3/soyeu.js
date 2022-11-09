@@ -6,11 +6,11 @@ function myFunction() {
     let study = prompt("Please enter your education")
     let work1 = prompt("Please enter your 1st work")
     let work2 = prompt("Please enter your 2nd work")
-    document.getElementById("name").innerHTML="Họ và tên: " + name + ".";
-    document.getElementById("birthday").innerHTML="Ngày sinh: " + birthday;
-    document.getElementById("gender").innerHTML="Giới tính: " + gender;
-    document.getElementById("culture").innerHTML="Văn hóa: " + culture;
-    document.getElementById("study").innerHTML="Học vấn: " + study;
-    document.getElementById("work1").innerHTML="Công việc 1: " + work1;
-    document.getElementById("work2").innerHTML="Công việc 2: " + work2;
+    document.getElementById("name").innerHTML= "<b>" + name + "</b>.";
+    document.getElementById("birthday").innerHTML= birthday;
+    document.getElementById("gender").innerHTML= gender;
+    document.getElementById("culture").innerHTML= culture;
+    document.getElementById("study").innerHTML= study;
+    document.getElementById("work1").innerHTML= work1;
+    document.getElementById("work2").innerHTML= work2;
 }

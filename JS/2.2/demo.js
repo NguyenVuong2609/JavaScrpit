@@ -16,3 +16,4 @@ function myFunction() {
   }
 
   prompt("Enter your phone number:");
+  confirm("Are you ready?")

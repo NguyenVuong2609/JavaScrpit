@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>Xin chào bạn!</div>
+    <p>Điểm tổng 3 môn của bạn là: <span  id="total"></span></p><br>
+    <p>Điểm trung bình 3 môn của bạn là <span id="average"></span></p>
+    <script>
+        let inputA = prompt("Vui lòng nhập điểm Vật Lý")
+        let inputB = prompt("Vui lòng nhập điểm Hóa Học")
+        let inputC = prompt("Vui lòng nhập điểm Sinh Học")
+        let A = parseInt(inputA)
+        let B = parseInt(inputB)
+        let C = parseInt(inputC)
+        let d = (A + B + C)
+        let e = (A + B + C) / 3
+        document.getElementById("total").innerHTML= d
+        document.getElementById("average").innerHTML = e
+    </script>
+</body>
+</html>

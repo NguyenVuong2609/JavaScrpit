@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        fieldset {
+            width: 600px;
+            display: flex;
+            position: fixed;
+            left: 30%;
+            justify-content: center;
+            text-align: center;
+        }
+        form {
+            margin: 20px;
+        }
+        input {
+            margin-bottom: 20px;
+        }
+        div {
+            margin: 20px;
+        }
+        body {
+            background-color: #ffb3ba;
+            color: #ffffba;
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legend>Calculator</legend>
+        <form action="#" method="get">
+            <input type="number" id="num1"> <input type="number" id="num2"> <br>
+            <button type="button" onclick="plusFunction()" id="plus">Addition (+)</button>
+            <button type="button" onclick="minusFunction()" id="minus">Subtraction (-)</button>
+            <button type="button" onclick="multiFunction()" id="multi">Multiplication (*)</button>
+            <button type="button" onclick="divFunction()" id="division">Division (/)</button>
+            <div>Result Division: <span id="result"></span></div>
+        </form>
+    </fieldset>
+    <script src="/JS/3.1 Tren lop/3.3/maytinh.js"></script>
+</body>
+</html>

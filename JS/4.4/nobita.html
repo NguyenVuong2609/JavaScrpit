@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="docReady()">
+    <img id="nobita" src="/JS/IMG/pikachu.gif" style="position:absolute;left:0; top:0;" height="100"
+width="100"/>
+    <script>
+        // Phim len 
+        function upArrowPressed() {
+        let element = document.getElementById("nobita");
+            element.style.top = parseInt(element.style.top) - 5 + 'px';
+        }
+        // Phim xuong 
+        function downArrowPressed() {
+        var element = document.getElementById("nobita");
+        element.style.top = parseInt(element.style.top) + 5 + 'px';
+        }
+        // Phim trai 
+        function leftArrowPressed() {
+        var element = document.getElementById("nobita");
+        element.style.left = parseInt(element.style.left) - 5 + 'px';
+        }
+        // Phim phai 
+        function rightArrowPressed() {
+        var element = document.getElementById("nobita");
+        element.style.left = parseInt(element.style.left) + 5 + 'px';
+        }
+        // Nhan phim 
+        function moveSelection(evt) {
+            switch (evt.keyCode) {
+            case 37:
+                leftArrowPressed();
+            break;
+            case 39:
+                rightArrowPressed();
+            break;
+            case 38:
+                upArrowPressed();
+            break;
+            case 40:
+                downArrowPressed();
+            break;
+            }
+        }
+        function docReady() {
+            window.addEventListener('keydown', moveSelection);
+        }
+    </script>
+</body>
+</html>

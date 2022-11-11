@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="month">
+    <button type="button" onclick="cal()">Tính số ngày</button>
+    <div id="result"></div>
+    <script>
+        function cal() {
+            let x = (document.getElementById("month").value)
+            if (x == 1 || x == 3 || x == 5 || x == 7 || x == 8 || x == 10 || x == 12)
+                document.getElementById("result").innerHTML= ("Tháng " + x + " có 31 ngày")
+            else if ( x == 4 || x == 6 || x == 9 || x == 11) {
+                document.getElementById("result").innerHTML=("Tháng " + x + " có 30 ngày")
+        }   else {
+            document.getElementById("result").innerHTML=("Tháng " + x + " có 28 hoặc 29 ngày")
+        }
+    }
+    </script>
+</body>
+</html>

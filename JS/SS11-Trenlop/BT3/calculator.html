@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #cal-body {
+            padding: 10px;
+            border-radius: 1em;
+            height: 200px;
+            width: 380px;
+            margin: auto;
+            background-color: 	#ffb3ba;
+            text-align: center;
+        }
+        .result-box {
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            border: 0.5px solid black;
+            color: black;
+            border-radius: 5px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .button {
+            color: black;
+            background-color: #baffc9;
+            border: 0.5px solid black;
+            border-radius: 5px;
+            width: 20%;
+            text-align: center;
+            box-shadow: 5px 5px 5px #c1c1c1;
+            padding: 5px;
+        }
+        .button:active {
+            box-shadow: inset 0px 0px 5px #c1c1c1;
+        }
+    </style>
+</head>
+<body>
+    <div id="cal-body">
+        <input type="button" id="result" class="result-box">
+        <input type="button" value="1" onclick="display(value)" class="button">
+        <input type="button" value="2" onclick="display(value)" class="button">
+        <input type="button" value="3" onclick="display(value)" class="button">
+        <input type="button" value="+" onclick="display(value)" class="button">
+        <input type="button" value="4" onclick="display(value)" class="button">
+        <input type="button" value="5" onclick="display(value)" class="button">
+        <input type="button" value="6" onclick="display(value)" class="button">
+        <input type="button" value="-" onclick="display(value)" class="button">
+        <input type="button" value="7" onclick="display(value)" class="button">
+        <input type="button" value="8" onclick="display(value)" class="button">
+        <input type="button" value="9" onclick="display(value)" class="button">
+        <input type="button" value="*" onclick="display(value)" class="button">
+        <input type="button" value="0" onclick="display(value)" class="button">
+        <input type="button" value="/" onclick="display(value)" class="button">
+        <input type="button" value="C" onclick="eraser()" class="button">
+        <input type="button" value="=" onclick="calculate()" class="button">
+    </div>
+    <script>
+        let x = "";
+        function display(value) {
+            x += value;
+            document.getElementById("result").value = x;
+        }
+        function calculate() {
+            let a = document.getElementById("result").value;
+            let b = eval(a);
+            document.getElementById("result").value = b;
+        }
+        function eraser() {
+            document.getElementById("result").value = " ";
+        }
+    </script>
+</body>
+</html>

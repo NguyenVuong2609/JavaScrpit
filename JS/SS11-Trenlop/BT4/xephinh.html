@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <img id= "anh1" src="/JS/IMG/bich-phuong-1.png" alt="" height="413px" width="600px" onclick="changeimg1()" style="box-shadow: gold 4px 4px 20px;"> <br>
+    <img id= "anh2" src="/JS/IMG/bich-phuong-2.png" alt="" height="223px" width="600px" onclick="changeimg2()" style="box-shadow: gold 4px 4px 20px;"> <br>
+    <img id= "anh3" src="/JS/IMG/bich-phuong-3.png" alt="" height="180px" width="600px" onclick="changeimg3()" style="box-shadow: gold 4px 4px 20px;">
+
+    <script>
+        let turn1 = 0;
+        let turn2 = 1;
+        let turn3 = 2;
+        let img1 = document.getElementById("anh1");
+        let img2 = document.getElementById("anh2");
+        let img3 = document.getElementById("anh3");
+
+        function changeimg1() {
+            turn1++;
+            if (turn1 == 1) {
+                img1.src = "/JS/IMG/bich-phuong-1.png";
+            } else if (turn1 == 2) {
+                img1.src = "/JS/IMG/tram-anh-1-600x413.png";
+            } else {
+                turn1 = 0;
+                img1.src = "/JS/IMG/xoai-non-1.png";
+            } 
+            checkcolor()
+        }
+
+        function changeimg2() {
+            turn2++;
+            if (turn2 == 1) {
+                img2.src = "/JS/IMG/bich-phuong-2.png";
+            } else if (turn2 == 2) {
+                img2.src = "/JS/IMG/tram anh-2-223.png";
+            } else {
+                turn2 = 0;
+                img2.src = "/JS/IMG/xoai-non-2.png";
+            } 
+            checkcolor()
+        }
+
+        function changeimg3() {
+            turn3++;
+            if (turn3 == 1) {
+                img3.src = "/JS/IMG/bich-phuong-3.png";
+            } else if (turn3 == 2) {
+                img3.src = "/JS/IMG/tram-anh-3-195.png";
+            } else {
+                turn3 = 0;
+                img3.src = "/JS/IMG/xoai-non-3.png";
+            } 
+            checkcolor()
+        }
+
+        function checkcolor() {
+            if (turn1 == turn2 && turn2 == turn3) {
+                img1.style.boxShadow = "gold 4px 4px 9px";
+                img2.style.boxShadow = "gold 4px 4px 9px";
+                img3.style.boxShadow = "gold 4px 4px 9px";
+                alert("Bạn đã ghép đúng!")
+            } else {
+                img1.style.boxShadow = "blue 4px 4px 9px";
+                img2.style.boxShadow = "blue 4px 4px 9px";
+                img3.style.boxShadow = "blue 4px 4px 9px";
+            }
+        }
+    </script>
+</body>
+</html>

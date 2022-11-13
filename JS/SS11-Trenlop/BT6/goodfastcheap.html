@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="good" min="0" max="5" type="range" onclick="changeGood()"> 
+    <span>Good</span> <br>
+    <input id="cheap" min="0" max="5" type="range" onclick="changeCheap()"> <span>Cheap</span> <br>
+    <input id="fast" min="0" max="5" type="range" onclick="changeFast()">
+    <span>Fast</span>
+    <script>
+        
+    let good = false;
+    let cheap = false;
+    let fast = false;
+    function changeGood() {
+       good = !good
+        if (good) {
+            document.getElementById('good').value = 5
+            if(cheap&&fast){
+                document.getElementById('fast').value = 0;
+                fast = false;
+            }
+        } else {
+            document.getElementById('good').value = 0
+        }
+        console.log('good = ', good)
+    }
+    function changeCheap() {
+        cheap = !cheap
+        if (cheap) {
+            document.getElementById('cheap').value = 5;
+            if(good&&fast){
+                document.getElementById('good').value = 0;
+                good = false;
+            }
+        } else {
+            document.getElementById('cheap').value = 0
+        }
+        console.log('cheap = ', cheap)
+    }
+    function changeFast() {
+        fast = !fast
+        console.log('fasst --> ', fast)
+        if (fast) {
+            document.getElementById('fast').value = 5;
+            if(good&&cheap){
+                document.getElementById('good').value = 0;
+                good = false;
+            }
+        } else {
+            document.getElementById('fast').value = 0
+        }
+        console.log('good = ', fast)
+    }
+
+    </script>
+</body>
+</html>

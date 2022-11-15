@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* #result {
+            scale: -1;
+            float: left;
+        } */
+    </style>
+</head>
+<body>
+    <input type="button" value="1 month" onclick="month1()">
+    <input type="button" value="6 months" onclick="month6()">
+    <input type="button" value="12 months" onclick="month12()">
+    <div id="interest"></div>
+    <div id="total"></div>
+    <!-- <div id="result"></div>
+    <div id="result1">1</div>
+    <div id="result2">2</div>
+    <div id="result3">3</div>
+    <div id="result4">4</div>
+    <div id="result5">5</div>
+    <div id="result6"></div> -->
+    <script>
+        // Bai 2
+        // let a = parseInt(prompt("Xin moi nhap so"));
+        // let b = 1;
+        // for ( let i = 1; i <= a ; i++) {
+        //     b = b * i;
+        // }
+        // document.write(b);
+
+        // Bai 3
+        // Tam giac 1
+        // let text = "";
+        // for ( let i = 0; i <= 5; i++){
+        //     for ( let j = 0; j <= i; j++){
+        //         text += "*";
+        //     }
+        //     text += "<br>";
+        // }
+        // document.(text);
+
+        // Tam giac 2
+        // let text = "";
+        // for ( let i = 5; i >= 0 ; i--){
+        //     for ( let j = 0; j <= i; j++){
+        //         text += "*";
+        //     }
+        //     text += "<br>";
+        // }
+        // document.getElementById("result").innerHTML = text;
+
+        // Bai 4
+        // let text = "";
+        //     for ( let j = 0; j <=10 ; j++) {
+        //         text += "*";
+        //     }
+        // let text1 = "";
+        //     for ( let i = 0; i <=8 ; i++) {
+        //         text1 += "*";
+        // }
+        // document.getElementById("result").innerHTML = text;
+        // document.getElementById("result1").innerHTML = "*" + text1 + "*"
+        // document.getElementById("result6").innerHTML = text;
+
+        // Bai 5
+            function month1() {
+                let a = parseInt(prompt("Vui long nhap so tien muon gui: (VND)"));
+                let b = a * 6 / 1200;
+                let c = a + b;
+                document.getElementById("total").innerHTML = "Tong ca goc lan lai la: " + c + " VND";
+            }
+
+            function month6() {
+                let a = parseInt(prompt("Vui long nhap so tien muon gui: (VND)"));
+                let c = "";
+                for ( let i = 1; i <=6 ; i++ ) {
+                    let b = a * 7 / 1200;
+                    c = a + b;
+                    console.log(c);
+                    a = c;
+                }
+                document.getElementById("total").innerHTML = "Tong ca goc lan lai la: " + c + " VND";
+            }
+
+            function month12() {
+                let a = parseInt(prompt("Vui long nhap so tien muon gui: (VND)"));
+                let c = "";
+                for ( let i = 1; i <=12 ; i++ ) {
+                    let b = a * 8 / 1200;
+                    c = a + b;
+                    console.log(c);
+                    a = c;
+                }
+                document.getElementById("total").innerHTML = "Tong ca goc lan lai la: " + c + " VND";
+            }
+    </script>
+</body>
+</html>

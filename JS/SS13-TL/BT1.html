@@ -33,27 +33,39 @@
         // console.log(result.join(''));
 
         // Bai 3
-        let str = prompt();
-        let UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        let LOWER = 'abcdefghijklmnopqrstuvwxyz';
-        let result = [];
+        // let str = prompt();
+        // let UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        // let LOWER = 'abcdefghijklmnopqrstuvwxyz';
+        // let result = [];
         
-        for(let x=0; x<str.length; x++)
-        {
-            if(UPPER.indexOf(str[x]) !== -1)
-            {
-            result.push(str[x].toLowerCase());
-            }
-            else if(LOWER.indexOf(str[x]) !== -1)
-            {
-            result.push(str[x].toUpperCase());
-            }
-            else 
-            {
-            result.push(str[x]);
-            }
+        // for(let x=0; x<str.length; x++)
+        // {
+        //     if(UPPER.indexOf(str[x]) !== -1)
+        //     {
+        //     result.push(str[x].toLowerCase());
+        //     }
+        //     else if(LOWER.indexOf(str[x]) !== -1)
+        //     {
+        //     result.push(str[x].toUpperCase());
+        //     }
+        //     else 
+        //     {
+        //     result.push(str[x]);
+        //     }
+        // }
+        // console.log(result.join(''));
+
+        let str = prompt();
+        console.log('before:' + str)
+
+        let strSp = str.split('');
+        let array = [];
+
+        for (const strSpKey of strSp) {
+            array.push(strSpKey < "a" ? strSpKey.toLowerCase() : strSpKey.toUpperCase())
         }
-        console.log(result.join(''));
+
+        console.log('after:' + array.join(''))s;
     </script>
 </body>
 </html>

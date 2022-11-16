@@ -6,30 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body onload="joke()">
-    <form action="#">
-        <textarea name="" id="txt" cols="30" rows="10"></textarea>
-    </form>
-
+<body>
+    <h2>Từ Điển Anh Việt</h2>
+    <div id="result"></div>
     <script>
-        let array =[];
-        let strArr = " I Love You So Much! ";
-        array = strArr.split('');
-        let str = "";
-
-        console.log('arr = ', array)
-
-        function joke() {
-            let text = document.getElementById("txt").value;
-            for ( let i = 1; i <= text.length; i++) {
-                str = str + array[i];
-                if ( i == 21) {
-                    str = "";
-                }
+        let eng = ["hello", "goodbye", "thanks", "sorry" , "okay"];
+        let vie = ["Xin Chao", "Tam Biet", "Cam On", "Xin Loi", "Dong Y"];
+        let find = prompt()
+        for(let i=0; i < eng.length; i++){
+            if ( eng[i] == find) {
+                document.getElementById("result").innerHTML= (vie[i]);
+                break;
+            } else {
+                document.getElementById("result").innerHTML=("Can not find!")
             }
-            document.getElementById("txt").value = str;
-            str = "";
-            setTimeout(joke, 1);
         }
     </script>
 </body>

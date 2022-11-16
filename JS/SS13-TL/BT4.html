@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="joke()">
+    <form action="#">
+        <textarea name="" id="txt" cols="30" rows="10"></textarea>
+    </form>
+
+    <script>
+        let array =[];
+        let strArr = " I Love You So Much! ";
+        array = strArr.split('');
+        let str = "";
+
+        console.log('arr = ', array)
+
+        function joke() {
+            let text = document.getElementById("txt").value;
+            for ( let i = 1; i <= text.length; i++) {
+                str = str + array[i];
+                if ( i == 21) {
+                    str = "";
+                }
+            }
+            document.getElementById("txt").value = str;
+            str = "";
+            setTimeout(joke, 1);
+        }
+    </script>
+</body>
+</html>

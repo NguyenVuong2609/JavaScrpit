@@ -36,30 +36,58 @@
         // document.write(numList.join(''));
 
         // Bai 3
-        let list = parseInt(prompt('Xin moi nhap so luong phan tu ban muon nhap: '));
-        let numList = [];
-        for ( i = 0; i < list; i++) {
-            let num = prompt('Xin moi nhap phan tu:');
-            numList.push(num);
-            console.log(numList);
-        }
-        let numChar = [];
-        for ( let i in numList) {
-            numList[i].split();
-            for ( let j in numList[i]){
-                numChar.push(numList[i][j].split());
-                console.log(numList[i][j])
-                // numChar = numList[i][j].push();
-            }
-        }
-        let numCollect = []
+        // let list = parseInt(prompt('Xin moi nhap so luong phan tu ban muon nhap: '));
+        // let numList = [];
+        // for ( i = 0; i < list; i++) {
+        //     let num = prompt('Xin moi nhap phan tu:');
+        //     numList.push(num);
+        //     console.log(numList);
+        // }
+        // let numChar = [];
+        // for ( let i in numList) {
+        //     numList[i].split();
+        //     for ( let j in numList[i]){
+        //         numChar.push(numList[i][j].split());
+        //         console.log(numList[i][j])
+        //         // numChar = numList[i][j].push();
+        //     }
+        // }
+        // let numCollect = []
         // for ( i = 0; i < numChar.length ; i++) {
-        //     if ( ) {
+        //     if ( parseInt(numChar[i]) ) {
         //         numCollect.push(numChar[i]);
         //         console.log(numCollect);
         //     }
         // }
-        console.log(numChar);
+        // document.write("Tổng số phần tử là số là: " + numCollect.length);
+        // console.log(numCollect);
+
+        // Bai 4
+        // let list = prompt("Nhap 1 cau: ");
+        // let listCollect = list.toString();
+        // let array = listCollect.split(' ');
+        // console.log(array);
+        // document.write(list + "<br>");
+        // document.write("Số từ trong câu trên là: " + array.length);
+
+        // Bai 5
+        // let list1 = prompt("Nhap cau 1: ");
+        // let list2 = prompt("Nhap cau 2: ")
+        // let listCollect1 = list1.toString();
+        // let listCollect2 = list2.toString();
+        // if (listCollect1 == listCollect2) {
+        //     alert("Same!");
+        // } else {
+        //     alert("Different!")
+        // }
+
+        // Bai 6
+        let list = prompt("Nhap 1 cau: ");
+        let listCollect = list.toString();
+        let array = listCollect.split("-")
+        let result = array.join("_");
+        console.log(array);
+        document.write(result);
     </script>
 </body>
 </html>

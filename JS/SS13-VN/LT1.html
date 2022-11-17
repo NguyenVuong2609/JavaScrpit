@@ -128,6 +128,42 @@
         //     }
         // }
         // console.log(numList);
+
+        // Bai 8
+        // let list = parseInt(prompt('Xin moi nhap so luong so ban muon nhap: '));
+        // let numList = [];
+        // for ( i = 0; i < list; i++) {
+        //     let num = parseInt(prompt('Xin moi nhap so:'));
+        //     numList.push(num);
+        //     console.log(numList);
+        // }
+        // document.write("Danh sach cua ban la: " + numList + "<br>");
+        // numList.sort(function(a,b){return b - a});
+        // console.log(numList);
+        // document.write("Danh sach theo thu tu giam dan: " + numList)
+
+        // Bai 9
+        let list1 = parseInt(prompt('Xin moi nhap so luong so ban muon nhap o mang 1: '));
+        let a = [];
+        for ( i = 0; i < list1; i++) {
+            let num1 = parseInt(prompt('Xin moi nhap so:'));
+            a.push(num1);
+            // console.log(a);
+        }
+        let list2 = parseInt(prompt('Xin moi nhap so luong so ban muon nhap o mang 2: '));
+        let b = [];
+        for ( i = 0; i < list2; i++) {
+            let num2 = parseInt(prompt('Xin moi nhap so:'));
+            b.push(num2);
+            // console.log(b);
+        }
+        let c = a.concat(b);
+        document.write("Mang 1: " + a + "<br>");
+        console.log(a);
+        document.write("Mang 2: " + b + "<br>");
+        console.log(b);
+        document.write("Mang 3: " + c + "<br>");
+        console.log(c);
     </script>
 </body>
 </html>

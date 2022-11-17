@@ -9,6 +9,57 @@
 <body>
     <script>
         // Bai 1
+        // let a = [
+        //     [1, 2, 1, 24],
+        //     [8, 11, 9, 4],
+        //     [7, 0, 7, 27],
+        //     [7, 4, 28, 14],
+        //     [3, 10, 26, 7]
+        // ];
+        // for ( let i in a){
+        //     console.log("row " + i);
+        //     for ( let j in a[i]){
+        //         console.log(" " + a[i][j]);
+        //     }
+        // }
+        // For in : Lấy vị trí. For of : Lấy giá trị. 
+
+        // Bai 2
+        // let list = parseInt(prompt('Xin moi nhap so luong phan tu ban muon nhap: '));
+        // let numList = [];
+        // for ( i = 0; i < list; i++) {
+        //     let num = prompt('Xin moi nhap phan tu:');
+        //     numList.push(num);
+        //     console.log(numList);
+        // }
+        // numList.reverse();
+        // document.write(numList.join(''));
+
+        // Bai 3
+        let list = parseInt(prompt('Xin moi nhap so luong phan tu ban muon nhap: '));
+        let numList = [];
+        for ( i = 0; i < list; i++) {
+            let num = prompt('Xin moi nhap phan tu:');
+            numList.push(num);
+            console.log(numList);
+        }
+        let numChar = [];
+        for ( let i in numList) {
+            numList[i].split();
+            for ( let j in numList[i]){
+                numChar.push(numList[i][j].split());
+                console.log(numList[i][j])
+                // numChar = numList[i][j].push();
+            }
+        }
+        let numCollect = []
+        // for ( i = 0; i < numChar.length ; i++) {
+        //     if ( ) {
+        //         numCollect.push(numChar[i]);
+        //         console.log(numCollect);
+        //     }
+        // }
+        console.log(numChar);
     </script>
 </body>
 </html>

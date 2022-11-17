@@ -10,15 +10,27 @@
     <h2>Từ Điển Anh Việt</h2>
     <div id="result"></div>
     <script>
+        // let eng = ["hello", "goodbye", "thanks", "sorry" , "okay"];
+        // let vie = ["Xin Chao", "Tam Biet", "Cam On", "Xin Loi", "Dong Y"];
+        // let find = prompt()
+        // for(let i=0; i < eng.length; i++){
+        //     if ( eng[i] == find) {
+        //         document.getElementById("result").innerHTML= (vie[i]);
+        //         break;
+        //     } else {
+        //         document.getElementById("result").innerHTML=("Can not find!")
+        //     }
+        // }
+
+        // Cach 2
         let eng = ["hello", "goodbye", "thanks", "sorry" , "okay"];
         let vie = ["Xin Chao", "Tam Biet", "Cam On", "Xin Loi", "Dong Y"];
-        let find = prompt()
-        for(let i=0; i < eng.length; i++){
-            if ( eng[i] == find) {
-                document.getElementById("result").innerHTML= (vie[i]);
-                break;
-            } else {
-                document.getElementById("result").innerHTML=("Can not find!")
+
+        let input = prompt('Nhập vào từ muốn dịch: ');
+
+        for (const lock in eng) {
+            if (input == eng[lock]) {
+                document.write(vie[lock]);
             }
         }
     </script>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #addButton, #deleteButton {
+            background-color: #50af50;
+            color: white;
+            border: #50af50;
+            border-radius: 6px;
+            padding: 10px;
+        }
+        #productName {
+            padding: 10px;
+        }
+        #editName {
+            padding: 10px;
+        }
+        #editButton {
+            background-color: #50af50;
+            color: white;
+            border: #50af50;
+            border-radius: 6px;
+            padding: 10px;
+        }
+        #displayProduct {
+            border: solid #133337;
+            text-align: center;
+        }
+        td {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Add New Product</h2>
+    <p id="AddNewProduct"><input type="text" id="productName" size="40" placeholder="New Product">
+        <span><input type="button" onclick="addProduct()" id="addButton" value="Add"></span>
+    </p>
+    <br>
+    <h2>Edit Product</h2>
+    <p id="EditProduct"><input type="text" id="editName" size="40" placeholder="">
+        <span><input type="button" onclick="changeProduct()" id="editButton" value="Edit"></span>
+    </p>
+    <br>
+    <table border ="5px"  id="displayProduct"></table>
+    <script src="/JS/SS14-TL/BT3.js">
+    </script>
+</body>
+</html>

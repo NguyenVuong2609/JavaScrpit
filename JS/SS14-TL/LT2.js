@@ -118,6 +118,7 @@ function findNum() {
         numList.push(character);
         console.log(numList);
     }
+
     let yourNum = prompt("Xin moi nhap ky tu ban muon tim: ")
     let yourArray = [];
     console.log(yourNum);

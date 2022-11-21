@@ -8,8 +8,22 @@
 </head>
 <body>
     <script>
-        var x = [1,2,4];
-        console.log(x);
+        // var x = [1,2,4];
+        // console.log(x);
+
+        function main(){
+            const number = [1,2];
+            swap(number);
+            console.log(number[0], number[1]);
+        }
+        
+        
+        function swap(number){
+            let temp = number[0];
+            number[0] = number[1];
+            number[1] = temp;
+        }
+        main();
     </script>
 </body>
 </html>

@@ -22,3 +22,25 @@
 //     return P;
 // }
 // document.getElementById("result").innerHTML = "Chu vi hinh tron cua ban la: " + findCirclePerimeter();
+
+// Bai 3
+// function findFactorial() {
+//     let x = parseInt(prompt("Xin moi nhap so ban muon tinh giai thua: "));
+//     for ( i = 0; i <= x; i++) {
+//         if ( x == 0 || x == 1) {
+//             return 1;
+//         } else {
+//             let y = "";
+//             let z = 1;
+//             for ( j = 1; j <= x; j++) {
+//                 y = z * j;
+//                 z = y;
+//                 console.log(y);
+//             }
+//             return y;
+//         }
+//     }
+// }
+// document.getElementById("result").innerHTML = "Ket qua la: " + findFactorial();
+
+// Bai 4

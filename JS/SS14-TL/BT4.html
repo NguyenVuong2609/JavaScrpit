@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="print"></p>
+    <script>
+        let palindrome = [];
+        function isPalindrome(s) {
+            s = prompt("Xin moi nhap du lieu: ");
+            palindrome = s.toString();
+            let devidePalindrome = palindrome.split('');
+            console.log(palindrome);
+            console.log(devidePalindrome);
+            let result = "";
+            if (devidePalindrome[0] == devidePalindrome[devidePalindrome.length - 1]) {
+                for (i = 1; i <= devidePalindrome.length / 2; i++) {
+                    if ( devidePalindrome[i] != devidePalindrome[devidePalindrome.length - (i + 1)]) {
+                        result = false;
+                    } else {
+                        result = true;
+                    }
+                }
+            } else{ 
+                result = false;
+            }
+            console.log(result);
+            return result;
+        }
+        document.getElementById("print").innerHTML = isPalindrome();
+    </script>
+</body>
+</html>

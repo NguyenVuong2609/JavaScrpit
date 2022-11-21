@@ -84,13 +84,54 @@
 //     document.getElementById("result").innerHTML = checkNum();
 
 // Bai 7
-function swapNum(){
-    let a = parseInt(prompt("Nhap so A: "));
-    let b = parseInt(prompt("Nhap so B: "));
-    let numList = [a,b];
-    let c = numList[0];
-    numList[0] = numList[1];
-    numList[1] = c;
-    return numList;
+// function swapNum(){
+//     let a = parseInt(prompt("Nhap so A: "));
+//     let b = parseInt(prompt("Nhap so B: "));
+//     let numList = [a,b];
+//     let c = numList[0];
+//     numList[0] = numList[1];
+//     numList[1] = c;
+//     return numList;
+// }
+// document.getElementById("result").innerHTML = swapNum();
+
+// Bai 8
+// function reverseArray() {
+//     let list = parseInt(prompt("Xin nhap so luong phan tu trong mang: "));
+//     let numList = [];
+//     for (i = 0; i < list; i++ ) {
+//         let num = parseInt(prompt("Xin moi nhap so: "));
+//         numList.push(num);
+//         console.log(numList);
+//     }
+//     numList.reverse();
+//     return numList;
+// }
+// document.getElementById("result").innerHTML = reverseArray();
+
+// Bai 9
+function findNum() {
+    let list = parseInt(prompt("Xin nhap so luong phan tu trong mang: "));
+    let numList = [];
+    for (i = 0; i < list; i++ ) {
+        let character = prompt("Xin moi nhap ky tu: ");
+        numList.push(character);
+        console.log(numList);
+    }
+    let yourNum = prompt("Xin moi nhap ky tu ban muon tim: ")
+    let yourArray = [];
+    console.log(yourNum);
+    let result = "";
+    for ( j = 0; j < list ; j++) {
+        if ( yourNum == numList[j]) {
+            yourArray.push(numList[j]);
+            console.log(yourArray);
+            result = yourArray.length;
+        } else {
+            result = -1;
+        }
+    }
+    console.log(yourArray);
+    return result;
 }
-document.getElementById("result").innerHTML = swapNum();
+document.getElementById("result").innerHTML = findNum();

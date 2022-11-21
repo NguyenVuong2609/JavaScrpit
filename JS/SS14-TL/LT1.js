@@ -41,7 +41,16 @@
 
 // Bai 5
 let star = ["Polaris","Aldebaran","Deneb","Vega","Altair","Dubhe","Regulus"];
-let constellation = ["Ursa Minor","Tarurus"]
+let constellation = ["UrsaMinor","Tarurus","Cygnus","Lyra","Aquila","UrsaMajor","Leo"]
 function findStar() {
-
+    let name = prompt("Xin moi nhap ten ngoi sao: ");
+    for ( i = 0; i < star.length; i++){
+        if (name == star[i]){
+            document.getElementById("result").innerHTML = ("Ngoi sao cua ban nam o chom sao: " + constellation[i]);
+            break;
+        } else {
+            document.getElementById("result").innerHTML = ("Rat tiec. Chung toi khong tim thay.");
+        }
+    }
 }
+findStar();

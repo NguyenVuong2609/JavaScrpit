@@ -44,3 +44,53 @@
 // document.getElementById("result").innerHTML = "Ket qua la: " + findFactorial();
 
 // Bai 4
+// function checkNum() {
+//     let a = prompt("Xin moi nhap: ");
+//     if ( a = parseInt(a)) {
+//         a = true;
+//     } else {
+//         a = false;
+//     }
+//     return a;
+// }
+// document.getElementById("result").innerHTML = checkNum();
+
+// Bai 5
+// function findMin() {
+//     let a = parseInt(prompt("Nhap vao so A: "));
+//     let b = parseInt(prompt("Nhap vao so B: "));
+//     let c = parseInt(prompt("Nhap vao so C: "));
+//     let minList = [a, b, c];
+//     let min = minList[0];
+//     for ( i = 1; i < minList.length; i++) {
+//         if (minList[i] < min) {
+//             min = minList[i];
+//         }
+//     }
+//     return min;
+// }
+// document.getElementById("result").innerHTML = findMin();
+
+// Bai 6
+// function checkNum() {
+//     let a = parseInt(prompt("Xin moi nhap: "));
+//     if ( a > 0 ) {
+//         a = true;
+//     } else {
+//         a = false;
+//     }
+//     return a;
+// } 
+//     document.getElementById("result").innerHTML = checkNum();
+
+// Bai 7
+function swapNum(){
+    let a = parseInt(prompt("Nhap so A: "));
+    let b = parseInt(prompt("Nhap so B: "));
+    let numList = [a,b];
+    let c = numList[0];
+    numList[0] = numList[1];
+    numList[1] = c;
+    return numList;
+}
+document.getElementById("result").innerHTML = swapNum();

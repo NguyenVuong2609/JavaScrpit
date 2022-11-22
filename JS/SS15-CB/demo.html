@@ -31,59 +31,59 @@
 
 
         // Date 
-        let MyDate = function(day, month, year) {
-            this.day = day;
-            this.month = month;
-            this.year = year;
-            this.getDay = function() {
-            return this.day;
-            }
-            this.getMonth = function() {
-                return this.month;
-            }
-            this.getYear = function() {
-                return this.year;
-            }
-            this.setDay = function(day) {
-                this.day = day;
-            }
-            this.setMonth = function(month) {
-                this.month = month;
-            }
-            this.setYear = function(year) {
-                this.year = year;
-            }
-        };
+        // let MyDate = function(day, month, year) {
+        //     this.day = day;
+        //     this.month = month;
+        //     this.year = year;
+        //     this.getDay = function() {
+        //     return this.day;
+        //     }
+        //     this.getMonth = function() {
+        //         return this.month;
+        //     }
+        //     this.getYear = function() {
+        //         return this.year;
+        //     }
+        //     this.setDay = function(day) {
+        //         this.day = day;
+        //     }
+        //     this.setMonth = function(month) {
+        //         this.month = month;
+        //     }
+        //     this.setYear = function(year) {
+        //         this.year = year;
+        //     }
+        // };
         
-        let date = new MyDate(2, 2, 2007);
-        date.getDay(); // 2
-        date.getMonth(); // 2
-        date.getYear(); // 2007
-        alert(date.day + "/" + date.month + "/" + date.year);
+        // let date = new MyDate(2, 2, 2007);
+        // date.getDay(); // 2
+        // date.getMonth(); // 2
+        // date.getYear(); // 2007
+        // alert(date.day + "/" + date.month + "/" + date.year);
 
-        // let date = new MyDate();
-        date.setDay(11);
-        date.setMonth(10);
-        date.setYear(2019);
-        alert(date.day + "/" + date.month + "/" + date.year);
+        // // let date = new MyDate();
+        // date.setDay(11);
+        // date.setMonth(10);
+        // date.setYear(2019);
+        // alert(date.day + "/" + date.month + "/" + date.year);
 
 
         // Circle 
-        // let Circle = function(radius) {
-        //     this.radius = radius;
-        //     this.getRadius = function() {
-        //         return radius;
-        //     }
-        //     this.getArea = function() {
-        //         return Math.PI * radius * radius;
-        //     }
-        // };
-        // let circle = new Circle(4);
-        // let radius = circle.getRadius();
-        // console.log(radius);
-        // let area = circle.getArea();
-        // console.log(area);
-        // alert("radius: " + radius + "; area: " + area);
+        let Circle = function(radius) {
+            this.radius = radius;
+            this.getRadius = function() {
+                return radius;
+            }
+            this.getArea = function() {
+                return Math.PI * radius * radius;
+            }
+        };
+        let circle = new Circle(4);
+        let radius = circle.getRadius();
+        console.log(radius);
+        let area = circle.getArea();
+        console.log(area);
+        alert("radius: " + radius + "; area: " + area);
         
         // Ve hinh tron Canvas 
         // function Circle(x, y, radius) {

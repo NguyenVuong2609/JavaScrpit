@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="800px" height="800px" style="border:1px solid
+#d3d3d3;">Your browser does not support the HTML5 canvas tag.</canvas>
+
+    <script>
+        // Khai bao lop doi tuong, tinh dien tich, chu vi hinh chu nhat 
+        let Rectangle = function(x,y) {
+            this.longs = x;
+            this.widths = y;
+            this.getArea = function() {
+                return x * y;
+            }
+            this.getPerimeter = function() {
+                return (x + y) * 2;
+            }
+        } 
+        let rectangle = new Rectangle(50,30);
+        let area = rectangle.getArea();
+        console.log(area);
+        let perimeter = rectangle.getPerimeter();
+        console.log(perimeter);
+        alert("Area: " + area + " Perimeter: " + perimeter);
+        
+        // Ve hinh chu nhat canvas 
+        function createRectangle() {
+            let ctx = document.getElementById("myCanvas").getContext("2d");
+            ctx.fillStyle='#fa4b2a';  
+            ctx.fillRect(100, 100, 50, 30);
+        }
+        createRectangle();
+    </script>
+</body>
+</html>

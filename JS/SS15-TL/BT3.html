@@ -12,7 +12,7 @@
             this.name = name,
             this.battery = battery,
             this.sent = sent,
-            this.inbox = inbox,
+            this.inbox = [];
             this.checkStatus= function() {
                 if (status = true) {
                     console.log("Điện thoại của bạn đang bật");
@@ -22,7 +22,7 @@
             }
             this.controlPower = function(show) {
                 if (show == true) {
-                    console.log("Điện thoại của bạn đã được bật");
+                    console.log("Xin chào.Điện thoại của bạn đã được bật");
                     this.status = true;
                 return show;
                 } else {
@@ -34,55 +34,68 @@
             this.chargeBattery = function() {
                 console.log("Điện thoại của bạn đang được sạc.");
                 for ( i = this.battery; i <= 100 ; i++) {
-                    this.battery = battery++;
+                    this.battery++;
                 }
                 return this.battery;
             }
             this.newMessage = function(mess) {
-                console.log("Soạn tin:" + mess);
-                this.battery = battery--;
-                this.sent = sent++;
-                return mess;
+                if (this.status == true){
+                    if (this.battery > 0) {
+                    console.log("Soạn tin:" + mess);
+                    this.battery--;
+                    this.sent++;
+                    this.inbox.push(mess);
+                    return mess;
+                    } else {
+                        this.status = false;
+                    alert("Điện thoại đã hết pin, xin mời sạc điện thoại.");
+                    }
+                } else {
+                    alert("Điện thoại của bạn đang tắt. Xin vui lòng bật");
+                }
             }
-            this.newInbox = function(){
-                console.log("Bạn đã nhận được tin nhắn từ điện thoại Nokia110i");
-                this.battery = battery--;
-                this.message = sent++;
-            }
+
             this.checkInbox = function(){
-                let detail = this.newMessage();
-                this.battery = battery--;
-                console.log("Nội dung tin nhắn là:" + detail);
+                if (this.status == true){
+                    if (this.battery > 0) {
+                    this.battery--;
+                    console.log("Nội dung hộp thư đến của bạn là:" + this.inbox);
+                    } else {
+                        this.status = false;
+                        alert("Điện thoại đã hết pin, xin mời sạc điện thoại.")
+                    }
+                } else {
+                    alert("Điện thoại của bạn đang tắt. Xin vui lòng bật");
+                }
+            }
+
+            this.deleteInbox = function(){
+                if (this.status == true){
+                    if (this.battery > 0) {
+                    this.battery--;
+                    this.inbox = [];
+                    this.battery--;
+                    console.log("Hộp thư đến của bạn đã bị xóa.");
+                    } else {
+                        this.status = false;
+                    alert("Điện thoại đã hết pin, xin mời sạc điện thoại.");
+                    }
+                } else {
+                    alert("Điện thoại của bạn đang tắt. Xin vui lòng bật");
+                }
             }
         }
 
-        let Nokia = new Mobile("Nokia 110i",80,0,0,true);
+        let Nokia = new Mobile("Nokia 110i",80,0,"",true);
         console.log(Nokia);
-        let Iphone = new Mobile("Iphone 14",99,0,0,true);
+        let Iphone = new Mobile("Iphone 14",99,0,"",true);
         console.log(Iphone);
-        Nokia.newMessage("Hello");
-        console.log(Nokia);
-        Nokia.chargeBattery();
-        console.log(Nokia);
-        Nokia.newMessage("Hello Van");
-        console.log(Nokia);
-        Nokia.chargeBattery();
-        console.log(Nokia);
-        Nokia.newMessage("Hello Yen");
-        console.log(Nokia);
-        Nokia.newInbox();
-        console.log(Nokia);
-        Nokia.newMessage("Hello Ha");
-        console.log(Nokia);
+        Iphone.controlPower(false);
+        Iphone.controlPower(true);
+        Iphone.newMessage("Hello");
+        Iphone.newMessage("Hi");
         Iphone.checkInbox();
-        Nokia.newMessage("Hello Vuong");
-        console.log(Nokia);
-        Nokia.controlPower(false);
-        console.log(Nokia);
-        Nokia.controlPower(true);
-        console.log(Nokia);
-
-
+        
     </script>
 </body>
 </html>

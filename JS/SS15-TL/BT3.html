@@ -13,6 +13,8 @@
             this.battery = battery,
             this.sent = sent,
             this.inbox = [];
+
+            // Kiểm tra tình trạng bật hay tắt 
             this.checkStatus= function() {
                 if (status = true) {
                     console.log("Điện thoại của bạn đang bật");
@@ -20,8 +22,11 @@
                     console.log("Điện thoại của bạn đang tắt");
                 }
             }
+
+            // Tính năng bật - tắt điện thoại 
             this.controlPower = function(show) {
                 if (show == true) {
+                    
                     console.log("Xin chào.Điện thoại của bạn đã được bật");
                     this.status = true;
                 return show;
@@ -31,13 +36,17 @@
                     return show;
                 }
             }
+
+            // Tính năng sạc pin 
             this.chargeBattery = function() {
                 console.log("Điện thoại của bạn đang được sạc.");
-                for ( i = this.battery; i <= 100 ; i++) {
+                for ( i = this.battery; i < 100 ; i++) {
                     this.battery++;
                 }
                 return this.battery;
             }
+
+            // Tính năng soạn tin nhắn 
             this.newMessage = function(mess) {
                 if (this.status == true){
                     if (this.battery > 0) {
@@ -55,6 +64,7 @@
                 }
             }
 
+            // Tính năng hiển thị hộp thư đến 
             this.checkInbox = function(){
                 if (this.status == true){
                     if (this.battery > 0) {
@@ -69,6 +79,7 @@
                 }
             }
 
+            // Tính năng xóa hộp thư đến 
             this.deleteInbox = function(){
                 if (this.status == true){
                     if (this.battery > 0) {
@@ -90,11 +101,7 @@
         console.log(Nokia);
         let Iphone = new Mobile("Iphone 14",99,0,"",true);
         console.log(Iphone);
-        Iphone.controlPower(false);
-        Iphone.controlPower(true);
-        Iphone.newMessage("Hello");
-        Iphone.newMessage("Hi");
-        Iphone.checkInbox();
+        
         
     </script>
 </body>

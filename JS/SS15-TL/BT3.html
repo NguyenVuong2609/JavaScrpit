@@ -8,17 +8,28 @@
 </head>
 <body>
     <script>
-        function Mobile(name,battery,sent,inbox) {
+        function Mobile(name,battery,sent,inbox,status) {
             this.name = name,
             this.battery = battery,
             this.sent = sent,
             this.inbox = inbox,
-            this.checkAlive = function(show) {
-                console.log("Điện thoại của bạn đang" + show);
+            this.checkStatus= function() {
+                if (status = true) {
+                    console.log("Điện thoại của bạn đang bật");
+                } else {
+                    console.log("Điện thoại của bạn đang tắt");
+                }
             }
             this.controlPower = function(show) {
-                console.log("Điện thoại của bạn đã" + show);
+                if (show == true) {
+                    console.log("Điện thoại của bạn đã được bật");
+                    this.status = true;
                 return show;
+                } else {
+                    console.log("Điện thoại của bạn đã được tắt");
+                    this.status = false;
+                    return show;
+                }
             }
             this.chargeBattery = function() {
                 console.log("Điện thoại của bạn đang được sạc.");
@@ -45,9 +56,9 @@
             }
         }
 
-        let Nokia = new Mobile("Nokia 110i",80,0,0);
+        let Nokia = new Mobile("Nokia 110i",80,0,0,true);
         console.log(Nokia);
-        let Iphone = new Mobile("Iphone 14",99,0,0);
+        let Iphone = new Mobile("Iphone 14",99,0,0,true);
         console.log(Iphone);
         Nokia.newMessage("Hello");
         console.log(Nokia);
@@ -66,6 +77,12 @@
         Iphone.checkInbox();
         Nokia.newMessage("Hello Vuong");
         console.log(Nokia);
+        Nokia.controlPower(false);
+        console.log(Nokia);
+        Nokia.controlPower(true);
+        console.log(Nokia);
+
+
     </script>
 </body>
 </html>

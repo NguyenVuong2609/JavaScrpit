@@ -30,12 +30,20 @@
         alert("Area: " + area + " Perimeter: " + perimeter);
         
         // Ve hinh chu nhat canvas 
-        function createRectangle() {
-            let ctx = document.getElementById("myCanvas").getContext("2d");
-            ctx.fillStyle='#fa4b2a';  
-            ctx.fillRect(100, 100, 50, 30);
-        }
-        createRectangle();
+        // function createRectangle() {
+        //     let ctx = document.getElementById("myCanvas").getContext("2d");
+        //     ctx.fillStyle='#fa4b2a';  
+        //     ctx.fillRect(100, 100, 50, 30);
+        // }
+        // createRectangle();
+
+        let canvas = document.getElementById('myCanvas');
+        let context = canvas.getContext('2d');
+        let imageObj = new Image();
+        imageObj.onload = function() {
+        context.drawImage(imageObj, 69, 50);
+        };
+        imageObj.src = 'https://media-cdn-v2.laodong.vn/Storage/newsportal/2019/4/13/727763/Tram-Anh-7.jpg';
     </script>
 </body>
 </html>

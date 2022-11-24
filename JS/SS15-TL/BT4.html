@@ -5,9 +5,123 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #monster {
+            position: fixed;
+            top: 300px;
+            left: 300px;
+
+        }
+    </style>
 </head>
-<body>
-    <img id="player" src="/JS/SS15-TL/IMG/player.webp" alt="">
-    <img id="monster" src="/JS/SS15-TL/IMG/mrmime.gif" alt="">
+<body onload="startGame()">
+    <!-- <canvas id="myCanvas" width="800px" height="800px" style="border:5px solid
+#d3d3d3;">Your browser does not support the HTML5 canvas tag.</canvas> -->
+    <!-- <img id="player" src="/JS/SS15-TL/IMG/player.webp" style="position:absolute;left:0; top:0;" alt="">
+    <img src="/JS/SS15-TL/IMG/mrmime.gif" alt="">
+    <img id="monster" src="/JS/SS15-TL/IMG/backgroundgrass.jpg" alt=""> -->
+
+    <script>
+        var myGame;
+        var myBackground;
+
+        function startGame() {
+            myGamePiece = new component(50,50, "/JS/SS15-TL/IMG/mrmime.gif", 10, 120, "image");
+            myBackground = new component(800, 800, "/JS/SS15-TL/IMG/backgroundgrass.jpg", 0, 0, "background");
+            myGameArea.start();
+        }
+
+        var myGameArea = {
+            canvas : document.createElement("canvas"),
+            start : function() {
+                this.canvas.width = 800;
+                this.canvas.height = 800;
+                this.context = this.canvas.getContext("2d");
+                document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+                this.frameNo = 0;
+                this.interval = setInterval(updateGameArea, 20);
+            },
+            clear : function() {
+                this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            },
+            stop : function() {
+                clearInterval(this.interval);
+            }
+        }
+
+        function component(width, height, color, x, y, type) {
+            this.type = type;
+            if (type == "image" || type == "background") {
+                this.image = new Image();
+                this.image.src = color;
+            }
+            this.width = width;
+            this.height = height;
+            this.speedX = 0;
+            this.speedY = 0;
+            this.x = x;
+            this.y = y;
+            this.update = function() {
+                ctx = myGameArea.context;
+                if (type == "image" || type == "background") {
+                    ctx.drawImage(this.image,
+                    this.x,
+                    this.y,
+                    this.width,this.height);
+                    if (type == "background") {
+                    ctx.drawImage(this.image, 
+                    this.x + this.width, 
+                    this.y,
+                    this.width, this.height);
+                    }
+                } else {
+                    ctx.fillStyle = color;
+                    ctx.fillRect(this.x,this.y,this.width,this.height);
+                }
+            }
+            this.newPos = function() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (this.type == "background") {
+                if(this.x == -(this.width)){
+                    this.x = 0;
+                }
+            }
+        }
+        }
+
+        function updateGameArea() {
+            myGameArea.clear();
+            myBackground.speedX = -1;
+            myBackground.newPos();
+            myBackground.update();
+            myBackground.newPos();
+            myBackground.update();
+        }
+
+        function clearmove() {
+            myGamePiece.image.src = "/JS/SS15-TL/IMG/player.webp";
+            myGamePiece.speedX = 0; 
+            myGamePiece.speedY = 0; 
+        }
+
+        function moveSelection(evt) {
+            switch (evt.keyCode) {
+            case 37:
+            leftArrowPressed();
+            break;
+            case 39:
+            rightArrowPressed();
+            break;
+            case 38:
+            upArrowPressed();
+            break;
+            case 40:
+            downArrowPressed();
+            break;
+            }
+        }
+
+    </script>
 </body>
 </html>

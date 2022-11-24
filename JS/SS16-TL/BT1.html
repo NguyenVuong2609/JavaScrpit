@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <img src="/JS/SS15-TL/IMG/mewtwo.gif" alt=""> -->
+    <div id="game"></div>
+    <div id="game1"></div>
+<script>
+    function Hero(image, top, left, size){
+    this.image = image;
+    this.top = top;
+    this.left = left;
+    this.size = size;
+    this.getHeroElement = function(){
+    return  '<img width="'+ this.size + '"' +
+        ' height="'+ this.size + '"' +
+        ' src="' + this.image +'"' +
+        ' style="top: '+this.top+'px; left:'+ this.left+ 'px;position:absolute;">'};
+
+    this.moveCross = function(){
+    this.left += 20;
+    console.log('ok: ' + this.left + this.top);
+    }
+    this.moveCrossBack = function(){
+        this.top += 10;
+    }
+    this.moveCrossLeft = function(){
+        this.left -= 50;
+    }
+}
+    var hero = new Hero("/JS/SS15-TL/IMG/mrmime.gif", 20, 30, 100);
+    var hero1 = new Hero("/JS/SS15-TL/IMG/mewtwo.gif", 100, 30, 100);
+    function start(){
+    if(hero.left < window.innerWidth - hero.size){
+        hero.moveCross();
+    } else {
+        if(hero.top < window.innerHeight - hero.size){
+            hero.moveCrossBack();
+        }
+    }
+    document.getElementById('game').innerHTML = hero.getHeroElement();
+    setTimeout(start, 100)
+    }
+    function start1(){
+    if(hero1.left < window.innerWidth - hero1.size){
+        hero1.moveCross();
+    } else {
+        if(hero1.top < window.innerHeight - hero1.size){
+            hero1.moveCrossBack();
+        }
+    }
+    document.getElementById('game1').innerHTML = hero1.getHeroElement();
+    setTimeout(start1, 100)
+    }
+    function start2(){
+        if(hero.left <= window.innerWidth - hero.size){
+            hero.moveCrossLeft();
+        }
+        document.getElementById('game').innerHTML = hero.getHeroElement();
+    setTimeout(start, 100)
+    }
+    start();
+    start1();
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <img id="lamp" src="/JS/SS16-TL/IMG/Untitled2.png" alt=""> -->
+    <div id="lamp"></div>
+    <div id="note"></div>
+    <script>
+        var lamp;
+        let SwitchButton = function(manufacturer,status) {
+            this.manufacturer = manufacturer;
+            this.status = status;
+
+            this.connectToLamp = function() {
+                lamp = new ElectricLamp(false);
+                alert('Bạn đã cắm đèn vào công tắc thành công');
+            }
+
+            this.switchOff = function() {
+                this.status = false;
+                lamp.turnOff();
+                Off();
+                // return status;
+            }
+            this.switchOn = function() {
+                this.status = true;
+                lamp.turnOn();
+                On();
+                // return status;
+            }
+        }
+
+        let ElectricLamp = function(status) {
+            this.status = status;
+
+            this.turnOff = function() {
+                document.getElementById('note').innerHTML = "Đèn của bạn đã tắt!"
+                this.status = false;
+                return '<img src="/JS/SS16-TL/IMG/Untitled2.png" alt="">';
+            }
+
+            this.turnOn = function() {
+                document.getElementById('note').innerHTML = "Đèn của bạn đã bật!"
+                this.status = true;
+                return '<img src="/JS/SS16-TL/IMG/Untitled.png" alt="">';
+            }
+        }
+        function On () {
+            document.getElementById('lamp').innerHTML = lamp.turnOn();
+        }
+        function Off () {
+            document.getElementById('lamp').innerHTML = lamp.turnOff();
+        }
+
+        let button = new SwitchButton("Điện quang", false);
+        button.connectToLamp();
+        console.log(lamp);
+        button.switchOn();
+        console.log(lamp);
+        button.switchOff();
+        button.switchOn();
+        // document.getElementById('lamp').innerHTML = '<img src="/JS/SS16-TL/IMG/Untitled2.png" alt="">';
+    </script>
+</body>
+</html>

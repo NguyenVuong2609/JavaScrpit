@@ -44,17 +44,23 @@
             }
 
             this.eatRat = function(mouse) {
-                if(mouse.status == true) {
+                if(this.catchRat(mouse) == true) {
+                    if(mouse.status == true) {
                     this.weights += mouse.weights;
                     mouse.status = false;
                     this.speed -= mouse.weights;
                     mouse.weights = 0;
                     console.log("Húp");
                     return true;
-                } else {
-                    console.log("Chuột đã chết, thúi quá, chạy thôiiiiii.");
+                    } else {
+                        console.log("Chuột đã chết, thúi quá, chạy thôiiiiii.");
                     return  false;
+                    }
+                } else {
+                    console.log('Chưa bắt được mà đòi ăn...');
+                    return false;
                 }
+                
             }
 
             this.catchRat = function(mouse) {
@@ -83,18 +89,8 @@
         let rat1 = new Rat("Thu", 1, 40, true);
         let rat2 = new Rat("Yen", 2, 100, true);
         cat.sound();
-        cat.catchRat(rat1);
-        console.log(cat.eatRat(rat1));
         cat.eatRat(rat1);
-        console.log(cat);
-        console.log(rat1);
-        rat1.sound();
-        console.log(rat1);
-        cat.goToilet();
-        cat.catchRat(rat2);
-        cat.goToilet();
-        console.log(cat.goToilet());
-        cat.catchRat(rat2);
+        cat.eatRat(rat2);
 
              
     </script>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let Apple = function(weights) {
+            this.weights = weights;
+            this.getWeights = function(weights) {
+                this.weights = weights;
+                return weights;
+            }
+            
+            this.decreaseApple = function() {
+                if (this.isEmpty() == true) {
+                    this.weights--;
+                    return weights;
+                } else {
+                    alert("Xin mời mua thêm táo.")
+                }
+            }
+            this.isEmpty = function() {
+                if (this.weights > 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+        let apple = new Apple(10);
+
+        let Human = function(name, gender, weights) {
+            this.name = name;
+            this.gender = gender;
+            this.weights = weights;
+
+            this.eatApple = function() {
+                    apple.decreaseApple();
+                    this.weights++;
+            }
+            this.checkApple = function() {
+                if (apple.isEmpty() == true) {
+                    alert('Táo vẫn còn ' + apple.weights + ' miếng');
+                } else {
+                    alert('Còn cái nịt');
+                }
+            }
+        }
+
+        let Adam = new Human("Adam", true, 70);
+        let Eva = new Human("Eva", false, 46);
+        console.log(apple);
+        Adam.eatApple();
+        console.log(apple);
+        console.log(Adam);
+        Adam.checkApple();    
+        </script>
+</body>
+</html>

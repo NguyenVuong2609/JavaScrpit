@@ -16,10 +16,14 @@
 
             this.sound = function(){
                 if(this.status == true) {
-                    alert('Chit chit');
+                    console.log('Chit chit');
                 } else {
-                    alert('Chú chuột này đã bị đăng xuất');
+                    console.log('Chú chuột này đã bị đăng xuất');
                 }
+            }
+            this.eatCheese = function(){
+                this.weights++;
+                return this.weights;
             }
         }
 
@@ -31,9 +35,11 @@
 
             this.sound = function(){
                 if(status == true) {
-                    alert('Meo meo');
+                    console.log('Meo meo');
+                    return true;
                 } else {
-                    alert('Chú mèo này đã bị đăng xuất');
+                    console.log('Chú mèo này đã bị đăng xuất');
+                    return false;
                 }
             }
 
@@ -41,17 +47,34 @@
                 if(mouse.status == true) {
                     this.weights += mouse.weights;
                     mouse.status = false;
+                    this.speed -= mouse.weights;
+                    mouse.weights = 0;
                     console.log("Húp");
+                    return true;
                 } else {
                     console.log("Chuột đã chết, thúi quá, chạy thôiiiiii.");
+                    return  false;
                 }
             }
 
             this.catchRat = function(mouse) {
                 if(this.speed > mouse.speed) {
                     console.log("Chạy đi đâu con sâu. Hehe.");
+                    return true;
                 } else {
                     console.log("Hụt rồi.");
+                    return false;
+                }
+            }
+            this.goToilet = function(){
+                if(this.weights > 1) {
+                    this.speed++;
+                    this.weights--;
+                    console.log("Your speed is " + this.speed + " Your weight is " + this.weights);
+                    return true;
+                } else {
+                    console.log("Còn gì đâu mà ẻ...");
+                    return false;
                 }
             }
         }
@@ -61,12 +84,19 @@
         let rat2 = new Rat("Yen", 2, 100, true);
         cat.sound();
         cat.catchRat(rat1);
+        console.log(cat.eatRat(rat1));
         cat.eatRat(rat1);
         console.log(cat);
         console.log(rat1);
         rat1.sound();
         console.log(rat1);
-        
+        cat.goToilet();
+        cat.catchRat(rat2);
+        cat.goToilet();
+        console.log(cat.goToilet());
+        cat.catchRat(rat2);
+
+             
     </script>
 </body>
 </html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let Rat = function(name, weights, speed, status) {
+            this.name = name;
+            this.weights = weights;
+            this.speed = speed;
+            this.status = status;
+
+            this.sound = function(){
+                if(this.status == true) {
+                    alert('Chit chit');
+                } else {
+                    alert('Chú chuột này đã bị đăng xuất');
+                }
+            }
+        }
+
+        let Cat = function(name, weights, speed, status) {
+            this.name = name;
+            this.weights = weights;
+            this.speed = speed;
+            this.status = status;
+
+            this.sound = function(){
+                if(status == true) {
+                    alert('Meo meo');
+                } else {
+                    alert('Chú mèo này đã bị đăng xuất');
+                }
+            }
+
+            this.eatRat = function(mouse) {
+                if(mouse.status == true) {
+                    this.weights += mouse.weights;
+                    mouse.status = false;
+                    console.log("Húp");
+                } else {
+                    console.log("Chuột đã chết, thúi quá, chạy thôiiiiii.");
+                }
+            }
+
+            this.catchRat = function(mouse) {
+                if(this.speed > mouse.speed) {
+                    console.log("Chạy đi đâu con sâu. Hehe.");
+                } else {
+                    console.log("Hụt rồi.");
+                }
+            }
+        }
+
+        let cat = new Cat("Vuong", 3, 99, true);
+        let rat1 = new Rat("Thu", 1, 40, true);
+        cat.sound();
+        cat.catchRat(rat1);
+        cat.eatRat(rat1);
+        console.log(cat);
+        console.log(rat1);
+        rat1.sound();
+        console.log(rat1);
+    </script>
+</body>
+</html>

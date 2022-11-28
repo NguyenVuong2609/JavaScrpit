@@ -66,7 +66,9 @@
     <!-- <audio src="/JS/SS17-TL/IMG/ViMeAnhBatChiaTay-MiuLe-7503053.mp3" autoplay></audio> -->
     <!-- <img src="/JS/SS17-TL/IMG/RIP.png" alt=""> -->
     <script>
-        let countDown = new Date("Nov 28, 2022 18:00:00").getTime();
+        // Đồng hồ đếm ngược
+
+        let countDown = new Date("Nov 28, 2022 21:00:00").getTime();
         let x = setInterval(myTime,1000);
         function myTime() {
             let now = new Date().getTime();
@@ -84,6 +86,8 @@
             }
         }
 
+        // Nút dừng đếm
+
         let btn = document.querySelector('#btn');
         btn.addEventListener('click', function(){
             clearInterval(x);
@@ -93,6 +97,9 @@
 
             console.log(x);
         })
+
+        // Đếm ngược 10 giây 
+
         let i = 10;
         function countDown10sec(){
             if (i > 0){
@@ -102,6 +109,8 @@
         }
         setInterval(countDown10sec,1000);
 
+        // Hiện gà và tính điểm
+        
         let chick = document.getElementById('chickIMG');
         let img = document.createElement('img');
         let score = 0;

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .clock {
+            border: 1px solid black;
+            padding: 50px;
+            border-radius: 8px;
+        }
+        h1 {
+            margin-bottom: 100px;
+            text-align: center;
+            font-size: 50px;
+            font-weight: 300;
+        }
+        h1 > span {
+            color: palevioletred;
+        }
+        h4 {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .timer {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 50px;
+        }
+        #hours, #minutes{
+            background-color: #2196f3;
+        }
+        #seconds {
+            background-color: #ff006a;
+        }
+        #container {
+            /* background-image: url("/JS/SS17-TL/IMG/brazil.jpg"); */
+            background-size: cover;
+            height : 800px;
+        }
+        body {
+            background-size : cover;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="container">
+        <!-- <div id="current-time"></div> -->
+        <br>
+        <h1>DRAFT<span>COUNTDOWN</span></h1>
+        <h4>THỜI GIAN BÂY GIỜ LÀ:</h4>
+        <div class="timer">
+            <span id="hours" class="clock"></span>
+            <span id="minutes" class="clock"></span>
+            <span id="seconds" class="clock"></span>
+        </div>
+        <div class="timer"><button id="btn">Stop time</button></div>
+        <div class="timer" id="chick"></div>
+        <div class="timer" id="chickIMG"></div>
+        <div class="timer" id="score"></div>
+    </div>
+    
+    <!-- <audio src="/JS/SS17-TL/IMG/ViMeAnhBatChiaTay-MiuLe-7503053.mp3" autoplay></audio> -->
+    <!-- <img src="/JS/SS17-TL/IMG/RIP.png" alt=""> -->
+    <script>
+        let countDown = new Date("Nov 28, 2022 18:00:00").getTime();
+        let x = setInterval(myTime,1000);
+        function myTime() {
+            let now = new Date().getTime();
+            let distance = countDown - now;
+            let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('hours').innerHTML = hours;
+            document.getElementById('minutes').innerHTML = minutes;
+            document.getElementById('seconds').innerHTML = seconds;
+
+            if (distance < 0) {
+                clearInterval(myTime);
+            }
+        }
+
+        let btn = document.querySelector('#btn');
+        btn.addEventListener('click', function(){
+            clearInterval(x);
+        })
+        btn.addEventListener('dblclick',function(){
+            x = setInterval(myTime,1000);
+
+            console.log(x);
+        })
+        let i = 10;
+        function countDown10sec(){
+            if (i > 0){
+                i--;
+            document.getElementById('chick').innerHTML = "Gà sẽ xuất hiện sau " + i + " giây."
+            } else {i = 10} 
+        }
+        setInterval(countDown10sec,1000);
+
+        let chick = document.getElementById('chickIMG');
+        let img = document.createElement('img');
+        let score = 0;
+        function apearChick(){
+            chick.appendChild(img);
+            img.src = "/JS/SS17-TL/IMG/chicken-icegif-8.gif"
+            img.width = Math.random() * 500;
+            
+            img.onclick = function(){
+                // if (img.width >300){
+                //     score += 5;
+                //     console.log(score);
+                //     document.getElementById('score').innerHTML = "Điểm số của bạn là: " + score;
+                //     chick.removeChild(img);
+                //     return score;
+                // } else {
+                //     score += 10;
+                //     console.log(score);
+                //     document.getElementById('score').innerHTML = "Điểm số của bạn là: " + score;
+                //     chick.removeChild(img);
+                //     return score;
+                // }
+                switch(img.width){
+                    case img.width < 50:
+                        score += 50
+                        document.getElementById('score').innerHTML = "Điểm số của bạn là: " + score;
+                        chick.removeChild(img);
+                        break;
+                    case img.width < 100:
+                        score += 30
+                        document.getElementById('score').innerHTML = "Điểm số của bạn là: " + score;
+                        chick.removeChild(img);
+                        break;
+                    case img.width < 200:
+                        score += 20
+                        document.getElementById('score').innerHTML = "Điểm số của bạn là: " + score;
+                        chick.removeChild(img);
+                        break;
+                    case img.width < 300:
+                        score += 10
+                        document.getElementById('score').innerHTML = "Điểm số của bạn là: " + score;
+                        chick.removeChild(img);
+                        break;
+                    default:
+                        score += 5
+                        document.getElementById('score').innerHTML = "Điểm số của bạn là: " + score;
+                        chick.removeChild(img);
+                }
+            }
+        }
+        setInterval(apearChick,11000);
+        
+        function hideChick() {
+            img.src = "";
+        }
+        setInterval(hideChick, 4000);
+    </script>
+</body>
+</html>

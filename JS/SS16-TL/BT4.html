@@ -1,12 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bài tập 4</title>
+    <!-- <link rel="stylesheet" href="style.css">
+    <script src=""></script> -->
 </head>
-<body>
-    Cờ caro
+<style>
+    #container {
+        width: 700px;
+        height: 700px;
+        background-color: rgb(222, 234, 224);
+        border-radius: 10px;
+        border: 2px solid rebeccapurple;
+    }
+
+    #caro_table {
+        position: relative;
+        height: 600px;
+        left: 40px;
+        text-align: center;
+        /* border: 1px solid black; */
+        /* background-color: greenyellow; */
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    #win_alert {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 500px;
+        height: 200px;
+        top: 200px;
+        left: 30px;
+        background-color: aqua;
+        opacity: 0.5;
+        visibility: hidden;
+        -webkit-box-shadow: 0px 0px 15px 8px rgba(255, 80, 31, 0.72);
+        box-shadow: 0px 0px 15px 8px rgba(255, 80, 31, 0.72);
+        border-radius: 20px;
+
+        font-size: 30px;
+
+    }
+
+    #caro_box_,
+    #caro_box_x,
+    #caro_box_o {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        border: 1px dotted gray;
+        background-color: white;
+        font-size: 26px;
+    }
+
+    #caro_box_x {
+        color: white;
+        background-color:red;
+    }
+
+    #caro_box_o {
+        color: white;
+        background-color: blue;
+    }
+
+
+    #caro_box_:hover {
+        background-color: red;
+        cursor: pointer;
+    }
+</style>
+
+<body onload="drawCaroTable()">
+    <div id="container">
+        <h1>Lượt chơi của người chơi <span id="turn_player">1 (o)</span></h1>
+        <div id="caro_table">
+            <div id="caro_table_position"></div>
+            <div id="win_alert">Test</div>
+        </div>
+        <!-- <div id="caro_box" style="top: 20; left: 60"></div> -->
+    </div>
+
 </body>
+<script>
+    function CaroBox(top, left) {
+        this.top = top;
+        this.left = left;
+        this.value = "";//TEMP VALUE
+    }
+
+
+    //Create Array
+    let caro = new Array();
+    let caro_table;
+
+
+    for (let i = 0; i < 20; i++) {
+        let rowArr = new Array();
+        for (let j = 0; j < 20; j++) {
+            /*Value top, left for Caro Box*/
+            rowArr[j] = new CaroBox((i * 30), (j * 30));
+        }
+        caro[i] = rowArr;
+    }
+    console.log(caro);
+
+
+    //Draw Caro Table
+    function drawCaroTable() {
+        let result = document.getElementById("caro_table_position");
+        caro_table = '';
+        for (let i = 0; i < 20; i++) {
+            for (let j = 0; j < 20; j++) {
+                caro_table += `<div id="caro_box_${caro[i][j].value}" style="top: ${caro[i][j].top}px; left: ${caro[i][j].left}px" onclick="playCaro(${i},${j})">${caro[i][j].value}</div>`
+            }
+        }
+        result.innerHTML = caro_table;
+    }
+    // console.log(caro_table);
+    //Check to Win
+    function checkToWin() {
+        let alert_win = document.getElementById("win_alert");
+        for (let i = 0; i < (20 - 4); i++) {
+            for (let j = 0; j < (20 - 4); j++) {
+                if ((caro[i][j].value == caro[i][j + 1].value
+                    && caro[i][j + 1].value == caro[i][j + 2].value
+                    && caro[i][j + 2].value == caro[i][j + 3].value
+                    && caro[i][j + 3].value == caro[i][j + 4].value)
+                    || (caro[i][j].value == caro[i + 1][j].value
+                        && caro[i + 1][j].value == caro[i + 2][j].value
+                        && caro[i + 2][j].value == caro[i + 3][j].value
+                        && caro[i + 3][j].value == caro[i + 4][j].value)
+                    || (caro[i][j].value == caro[i + 1][j + 1].value
+                        && caro[i + 1][j + 1].value == caro[i + 2][j + 2].value
+                        && caro[i + 2][j + 2].value == caro[i + 3][j + 3].value
+                        && caro[i + 3][j + 3].value == caro[i + 4][j + 4].value)
+                ) {
+                    if (caro[i][j].value == "x") {
+                        console.log("Người chơi 1 chiến thắng!!!!");
+                        alert_win.style.visibility = "visible";
+                        alert_win.innerHTML = "Player 1: WON"
+
+                    }
+                    else if (caro[i][j].value == "o") {
+                        console.log("Người chơi 2 chiến thắng!!!!");
+                        alert_win.style.visibility = "visible";
+                        alert_win.innerHTML = "Player 2: WON"
+                    }
+                }
+            }
+        }
+        for (let i = 19; i >= 4; i--) {
+            for (let j = 0; j < (20 - 4); j++) {
+                if ((caro[i][j].value == caro[i - 1][j + 1].value
+                    && caro[i - 1][j + 1].value == caro[i - 2][j + 2].value
+                    && caro[i - 2][j + 2].value == caro[i - 3][j + 3].value
+                    && caro[i - 3][j + 3].value == caro[i - 4][j + 4].value)
+                ) {
+                    if (caro[i][j].value == "x") {
+                        console.log("Người chơi 1 chiến thắng!!!!");
+                        alert_win.style.visibility = "visible";
+                        alert_win.innerHTML = "Player 1: WON"
+
+                    }
+                    else if (caro[i][j].value == "o") {
+                        console.log("Người chơi 2 chiến thắng!!!!");
+                        alert_win.style.visibility = "visible";
+                        alert_win.innerHTML = "Player 2: WON"
+                    }
+                }
+            }
+        }
+    }
+
+    //Play Caro for 2 Player
+    //Player's turn
+    let turn = 1;
+    function playCaro(x, y) {
+        if (caro[x][y].value == "") {
+            switch (turn) {
+                case 1:
+                    caro[x][y].value = 'x'
+                    turn++;
+                    console.log("Chuyển sang lượt của người chơi " + turn + " (o)");
+                    document.getElementById("turn_player").innerHTML = turn + " (o)";
+                    break;
+                case 2:
+                    caro[x][y].value = 'o';
+                    turn = 1;
+                    console.log("Chuyển sang lượt của người chơi " + turn + " (x)");
+                    document.getElementById("turn_player").innerHTML = turn + " (x)";
+                    break;
+            }
+            drawCaroTable();
+            checkToWin();
+        }
+        else {
+            alert("Ô này đã được đánh trước đó rồi!!!");
+        }
+    }
+
+
+</script>
+
 </html>

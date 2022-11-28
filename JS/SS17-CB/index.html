@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <a href="https://www.javascripttutorial.net/">JS Tutorial</a> -->
+    <button id="btn">Click Me!</button>
+
+    <p id="demo"></p>
+    <button onclick="clearInterval(myVar)">Stop time</button>
+
+    <script>
+        // Dừng hành động trong hàm
+        // let link = document.querySelector('a');
+        // link.addEventListener('click',function(event) {
+        //     console.log('clicked');
+        //     event.preventDefault();
+        // });
+
+
+        // Dừng toàn bộ dòng event của DOM 
+        // let btn = document.querySelector('#btn');
+        // btn.addEventListener('click', function(event) {
+        // console.log('The button was clicked!');
+        // event.stopPropagation();
+        // });
+        // document.body.addEventListener('click',function(event) {
+        // console.log('The body was clicked!');
+        // });
+
+        let myVar = setInterval(myTimer, 1000);
+        function myTimer() {
+        const d = new Date();
+        document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+        }
+
+    </script>
+</body>
+</html>

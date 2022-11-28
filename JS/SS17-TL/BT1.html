@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .clock {
+            border: 1px solid black;
+            padding: 50px;
+            border-radius: 8px;
+        }
+        h1 {
+            margin-bottom: 100px;
+            text-align: center;
+            font-size: 50px;
+            font-weight: 300;
+            color: white;
+        }
+        h4 {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        #timer {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 50px;
+        }
+        #hours, #minutes{
+            background-color: #2196f3;
+        }
+        #seconds {
+            background-color: #ff006a;
+        }
+        #container {
+            /* background-image: url("/JS/SS17-TL/IMG/brazil.jpg"); */
+            background-size: cover;
+            height : 800px;
+        }
+        body {
+            background-size : cover;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <!-- <div id="current-time"></div> -->
+        <br>
+        <h1>Đồng hồ điện tử</h1>
+        <h4>THỜI GIAN BÂY GIỜ LÀ:</h4>
+        <div id="timer">
+            <span id="hours" class="clock"></span>
+            <span id="minutes" class="clock"></span>
+            <span id="seconds" class="clock"></span>
+        </div>
+    </div>
+    <!-- <audio src="/JS/SS17-TL/IMG/ViMeAnhBatChiaTay-MiuLe-7503053.mp3" autoplay></audio> -->
+    <script>
+        function Clock() {
+            let today = new Date();
+            // let date =
+            // today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+            let time = today.getHours() + ":" + today.getMinutes() + ":" +
+            today.getSeconds();
+            // let dateTime = date+' '+time;
+            document.getElementById("hours").innerHTML = today.getHours();
+            document.getElementById("minutes").innerHTML = today.getMinutes();
+            document.getElementById("seconds").innerHTML = today.getSeconds();
+        }
+        function music() {
+            let audio = document.createElement('audio');
+            audio.src="/JS/SS17-TL/IMG/ViMeAnhBatChiaTay-MiuLe-7503053.mp3"
+            audio.autoplay = true;
+        }
+        function background() {
+            let bg = document.querySelector('body');
+            // let bg = document.getElementById("container");
+            console.log(bg);
+            bg.background = '/JS/SS17-TL/IMG/brazil.jpg';
+            // bg.style.background = "url('/JS/SS17-TL/IMG/brazil.jpg')";
+        }
+        setInterval(background, 5000);
+        setInterval(music, 50000);
+        setInterval(Clock, 1000);
+    </script>
+</body>
+</html>

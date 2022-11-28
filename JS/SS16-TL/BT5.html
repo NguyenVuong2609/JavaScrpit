@@ -21,6 +21,15 @@
                     console.log('Chú chuột này đã bị đăng xuất');
                 }
             }
+            this.getStatus = function(){
+                if (this.status == true) {
+                    console.log('Still alive');
+                    return true;
+                } else {
+                    console.log('Dead');
+                    return false;
+                }
+            }
             this.eatCheese = function(){
                 this.weights++;
                 return this.weights;
@@ -89,10 +98,14 @@
         let rat1 = new Rat("Thu", 1, 40, true);
         let rat2 = new Rat("Yen", 2, 100, true);
         cat.sound();
-        cat.eatRat(rat1);
         cat.eatRat(rat2);
-
-             
+        cat.eatRat(rat1);
+        console.log(cat);
+        cat.goToilet();
+        cat.goToilet();
+        cat.goToilet();
+        cat.eatRat(rat2);
+        console.log(cat);
     </script>
 </body>
 </html>

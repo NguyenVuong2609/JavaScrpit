@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="list">
+        <li>C. Ronaldo</li>
+        <li>L. Messi</li>
+        <li>Neymar Jr</li>
+    </ul>
+
+    <button id="btn">Click to add new player</button>
+
+    <input id="my-input" type="text" placeholder="Điền tên cầu thủ bạn muốn thêm" size="30">
+    <br> <br>
+    <h2>Đồng hồ điện tử</h2>
+    <div id="clock"></div>
+    <h2>Đồng hồ đếm ngược</h2>
+    <input id="my-set" type="text">
+    <div id="timeClock"></div>
+    <script>
+        // Thêm tên cầu thủ vào danh sách
+        let btn = document.getElementById("btn");
+        btn.addEventListener("click",function(){
+            let input = document.createTextNode(prompt("Điền tên cầu thủ bạn muốn thêm:"));
+            let li = document.createElement("li");
+            li.appendChild(input);
+
+            var result = document.getElementById("list");
+            result.appendChild(li);
+        }); 
+
+
+        // Cách 2 sử dụng input 
+        var myInput = document.getElementById('my-input');
+        console.log(myInput);
+
+        myInput.addEventListener('keypress', function(data){
+            console.log(data);
+        })
+        myInput.addEventListener('keypress', function(data){
+            if (data.keyCode == 13) {
+                newPlayer();
+            }
+        })
+
+        function newPlayer() {
+            let li = document.createElement("li");
+            li.innerHTML = myInput.value;
+            let result = document.getElementById("list");
+            result.appendChild(li);
+            myInput.value = "";
+        }
+
+        // Đồng hồ điện tử
+        let myClock = setInterval(myTimer, 1000);
+        function myTimer() {
+            const d = new Date();
+            document.getElementById('clock').innerHTML = d.toLocaleTimeString();
+        }
+
+        // Đồng hồ đếm ngược
+        let time = document.getElementById("my-set");
+        time.addEventListener('keypress', function(data){
+            if (data.keyCode == 13) {
+                let countDown = setInterval(myTimerBack, 1000);
+        }})
+        function myTimerBack() {
+            let r = parseInt(time.value);
+            // time.value =""
+            if (r > 0) {
+                r--;
+                time.value = r;
+                console.log(r);
+                document.getElementById('timeClock').innerHTML = "Thời gian còn lại của bạn là: " +  r;
+            }
+        }
+        
+    </script>
+</body>
+</html>

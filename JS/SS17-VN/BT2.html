@@ -5,8 +5,97 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pikachu</title>
+    <style>
+        .content {
+            display: grid;
+            grid-template-columns: 100px 100px 100px 100px;
+            background-color: #2a0f40;
+            width: 400px;
+        }
+        .grid-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            font-size: 30px;
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+        }
+        img {
+            width: 99px;
+            height: 80px;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="time" >
+        <h1>Game Pikachu</h1>
+    </div>
+    <div class="content" id="content">
+        <!-- <img src="/JS/SS17-VN/IMG/pika1.png" alt="" class="grid=item">
+        <img src="/JS/SS17-VN/IMG/pika2.png" alt="" class="grid=item">
+        <img src="/JS/SS17-VN/IMG/pika3.png" alt="" class="grid=item"> 
+        <img src="/JS/SS17-VN/IMG/pika4.png" alt="" class="grid=item">
+        <img src="/JS/SS17-VN/IMG/pika5.png" alt="" class="grid=item">
+        <img src="/JS/SS17-VN/IMG/pika6.png" alt="" class="grid=item">  
+        <img src="/JS/SS17-VN/IMG/pika7.png" alt="" class="grid=item">
+        <img src="/JS/SS17-VN/IMG/pika8.png" alt="" class="grid=item">
+        <img src="/JS/SS17-VN/IMG/pika2.png" alt="" class="grid=item">
+        <img src="/JS/SS17-VN/IMG/pika1.png" alt="" class="grid=item"> 
+        <img src="/JS/SS17-VN/IMG/pika3.png" alt="" class="grid=item">
+        <img src="/JS/SS17-VN/IMG/pika4.png" alt="" class="grid=item">
+        <img src="/JS/SS17-VN/IMG/pika5.png" alt="" class="grid=item">  
+        <img src="/JS/SS17-VN/IMG/pika6.png" alt="" class="grid=item">
+        <img src="/JS/SS17-VN/IMG/pika7.png" alt="" class="grid=item">  
+        <img src="/JS/SS17-VN/IMG/pika8.png" alt="" class="grid=item"> -->
+        <!-- <img src="/JS/SS17-VN/IMG/blank.png" alt=""> -->
+    </div>
+    <div id="total"></div>
+    <script>
+        let arrayA = ["/JS/SS17-VN/IMG/pika1.png","/JS/SS17-VN/IMG/pika2.png","/JS/SS17-VN/IMG/pika3.png","/JS/SS17-VN/IMG/pika4.png","/JS/SS17-VN/IMG/pika5.png","/JS/SS17-VN/IMG/pika6.png","/JS/SS17-VN/IMG/pika7.png","/JS/SS17-VN/IMG/pika8.png","/JS/SS17-VN/IMG/pika1.png","/JS/SS17-VN/IMG/pika2.png","/JS/SS17-VN/IMG/pika3.png","/JS/SS17-VN/IMG/pika4.png","/JS/SS17-VN/IMG/pika5.png","/JS/SS17-VN/IMG/pika6.png","/JS/SS17-VN/IMG/pika7.png","/JS/SS17-VN/IMG/pika8.png"];
+        let result = [];
+        let arrayB = [];
+        console.log(arrayA.length);
+        let x = arrayA.length;
+        function pushImg(){
+            let content = document.getElementById('content');
+            for (i=0; i < x; i++){
+                let img = document.createElement('img');
+                content.appendChild(img);
+                let a = Math.floor(Math.random()*x);
+                console.log(a);
+                img.src = arrayA[a];
+                img.width = 100;
+                img.height = 100;
+                img.className = "grid-item";
+                img.onclick = function(){
+                    console.log(img.src)
+                    if (img.src == "/JS/SS17-VN/IMG/blank.png"){
+                        console.log('Wrong click');
+                    } else {
+                        result.push(img.src);
+                        console.log(result);
+                        if (result.length == 2) {
+                            checkTrue();
+                        }
+                        img.src = "/JS/SS17-VN/IMG/blank.png";
+                    }
+                    return result;
+                }
+            }
+        }
+            let score = 0;
+            function checkTrue(){
+                    if ( result[0] == result[1]) {
+                        score += 1;
+                        result = [];
+                    } else {
+                        result =[];
+                    }
+                    document.getElementById('total').innerHTML = "Your score: " + score;
+            }
+        pushImg();
+
+    </script>
 </body>
 </html>

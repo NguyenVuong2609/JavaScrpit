@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        if (typeof(Storage) !== "undefined") {
+            var domain = localStorage.getItem('domain');
+            document.write(domain); // kết quả javascript.info
+        } else {
+            document.write('Trình duyệt của bạn không hỗ trợ local storage');
+        }
+    </script>
+</body>
+</html>

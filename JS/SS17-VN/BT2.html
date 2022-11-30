@@ -6,8 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pikachu</title>
     <style>
+        body {
+            width: 800px;
+            background-color: #301144;
+        }
         .content {
             display: grid;
+            position: relative;
+            left: 200px;
             grid-template-columns: 100px 100px 100px 100px;
             background-color: #2a0f40;
             width: 400px;
@@ -17,13 +23,21 @@
             border: 1px solid rgba(0, 0, 0, 0.8);
             font-size: 30px;
             text-align: center;
+            border-radius: 8px;
         }
         h1 {
             text-align: center;
+            color: gold;
         }
         img {
             width: 99px;
             height: 80px;
+        }
+        img:hover {
+            cursor: pointer;
+        }
+        #total {
+            color: gold;
         }
     </style>
 </head>
@@ -32,22 +46,6 @@
         <h1>Game Pikachu</h1>
     </div>
     <div class="content" id="content">
-        <!-- <img src="/JS/SS17-VN/IMG/pika1.png" alt="" class="grid=item">
-        <img src="/JS/SS17-VN/IMG/pika2.png" alt="" class="grid=item">
-        <img src="/JS/SS17-VN/IMG/pika3.png" alt="" class="grid=item"> 
-        <img src="/JS/SS17-VN/IMG/pika4.png" alt="" class="grid=item">
-        <img src="/JS/SS17-VN/IMG/pika5.png" alt="" class="grid=item">
-        <img src="/JS/SS17-VN/IMG/pika6.png" alt="" class="grid=item">  
-        <img src="/JS/SS17-VN/IMG/pika7.png" alt="" class="grid=item">
-        <img src="/JS/SS17-VN/IMG/pika8.png" alt="" class="grid=item">
-        <img src="/JS/SS17-VN/IMG/pika2.png" alt="" class="grid=item">
-        <img src="/JS/SS17-VN/IMG/pika1.png" alt="" class="grid=item"> 
-        <img src="/JS/SS17-VN/IMG/pika3.png" alt="" class="grid=item">
-        <img src="/JS/SS17-VN/IMG/pika4.png" alt="" class="grid=item">
-        <img src="/JS/SS17-VN/IMG/pika5.png" alt="" class="grid=item">  
-        <img src="/JS/SS17-VN/IMG/pika6.png" alt="" class="grid=item">
-        <img src="/JS/SS17-VN/IMG/pika7.png" alt="" class="grid=item">  
-        <img src="/JS/SS17-VN/IMG/pika8.png" alt="" class="grid=item"> -->
         <!-- <img src="/JS/SS17-VN/IMG/blank.png" alt=""> -->
     </div>
     <div id="total"></div>
@@ -57,8 +55,9 @@
         let arrayB = [];
         console.log(arrayA.length);
         let x = arrayA.length;
+        let z = document.getElementById('img.id');
         function pushImg(){
-            let content = document.getElementById('content');
+            let content = document.getElementById('content'); 
             for (i=0; i < x; i++){
                 let img = document.createElement('img');
                 content.appendChild(img);
@@ -68,18 +67,19 @@
                 img.width = 100;
                 img.height = 100;
                 img.className = "grid-item";
+                img.id = i;
+                console.log(img);
                 img.onclick = function(){
-                    console.log(img.src)
-                    if (img.src == "/JS/SS17-VN/IMG/blank.png"){
-                        console.log('Wrong click');
-                    } else {
-                        result.push(img.src);
-                        console.log(result);
-                        if (result.length == 2) {
-                            checkTrue();
-                        }
-                        img.src = "/JS/SS17-VN/IMG/blank.png";
+                    result.push(img.src);
+                    console.log(result);
+                    if (result.length == 2) {
+                            if (checkTrue() == true) {
+                                img.style.border = '1px solid red';
+                            } else {
+                                img.style.border = '1px solid blue';
+                            }
                     }
+                    img.src = "";
                     return result;
                 }
             }
@@ -89,10 +89,13 @@
                     if ( result[0] == result[1]) {
                         score += 1;
                         result = [];
+                        document.getElementById('total').innerHTML = "Your score: " + score;
+                        return true;
                     } else {
                         result =[];
-                    }
-                    document.getElementById('total').innerHTML = "Your score: " + score;
+                        document.getElementById('total').innerHTML = "Your score: " + score;
+                        return false;
+                    }    
             }
         pushImg();
 

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sach cau thu</title>
+</head>
+<body>
+    <h2>Danh sách cầu thủ</h2>
+    <ul id="list">
+    </ul>
+    <div id="demo"></div>
+    <input type="text" id="input">
+    <button id="btn">Click to add new player</button>
+    <script>
+        var myInput = document.getElementById('input');
+        let btn = document.getElementById('btn');
+        let array = [];
+        btn.addEventListener('click', function(){
+            let li = document.createElement("li");
+            let x = document.createElement("input");
+            li.innerHTML = myInput.value;
+            let result = document.getElementById("list");
+            result.appendChild(li);
+            li.appendChild(x);
+            console.log(li);
+            x.type = "button";
+            x.value = "X";
+            x.addEventListener('click', function(){
+                result.removeChild(li);
+            })
+            array.push(myInput.value);
+            localStorage.setItem("Player", array );
+            myInput.value = "";
+            // document.getElementById('demo').innerHTML = "Danh sách các cầu thủ đã được thêm: " + localStorage.getItem("Player")
+            // i++;
+            // j++;
+        })
+        
+    </script>
+</body>
+</html>

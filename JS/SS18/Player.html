@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="inputPlayer" type="text" placeholder="Nhập tên cầu thủ" />
+    <input id="addPlayer" type="button" value="Thêm cầu thủ" />
+    <input id="clearPlayer" type="button" value="Xóa tất cả" />
+    <ul id="listPlayer">
+      <!-- <li>CR7</li> -->
+    </ul>
+  </body>
+  <script>
+    // B1: Lấy các selector tương ứng
+    let player = document.getElementById("inputPlayer");
+    let control = document.getElementById("addPlayer");
+    let clr = document.getElementById("clearPlayer");
+    let listPlayer = document.getElementById("listPlayer");
+
+    // B2: Thêm sự kiện click cho nút thêm cầu thủ
+    control.addEventListener("click", function (e) {
+      // Thêm player vào bộ nhớ trình duyệt
+      localStorage.setItem(player.value, "player: " + player.value);
+
+      /* -- BEGIN ----------------------------- */
+      // B2.1: Khởi tạo phần tử li
+      let liPlayer = document.createElement("li");
+      let liText = document.createTextNode(player.value);
+      let button = document.createElement("button");
+      button.innerText = "Xóa";
+
+      liPlayer.appendChild(liText);
+      liPlayer.appendChild(button);
+
+      button.addEventListener("click", function () {
+        // B2.1.1: Lấy ra key tương ứng
+        let keyPlayer = button.previousSibling;
+        // B2.1.2: Xóa phần tử khỏi localStorage
+        localStorage.removeItem(localStorage.key(keyPlayer));
+        // B2.1.3 Xóa khỏi giao diện
+        button.parentNode.outerHTML = "";
+      });
+
+      // B2.2: Thêm phần tử li vào danh sách đã có
+      listPlayer.appendChild(liPlayer);
+      /* -- END ----------------------------- */
+
+      player.value = "";
+    });
+
+    // B3: Thêm sự kiện click cho nút xóa tất cả cầu thủ
+    clr.addEventListener("click", function () {
+      clearPlayer();
+    });
+
+    // B3.1: Tạo hàm xóa cầu thủ
+    function clearPlayer() {
+      localStorage.clear();
+      listPlayer.innerHTML = "";
+    }
+
+    // B4: Tạo hàm lấy danh sách cầu thủ
+    function getAllPlayer() {
+      // B4.1: Duyệt danh sách cầu thủ lưu trữ tại local storage
+      for (let index = 0; index < localStorage.length; index++) {
+        // document.write(localStorage.key(index) + "<br>");
+
+        /* -- BEGIN ----------------------------- */
+        // B4.1.1: Khởi tạo phần tử li
+        let liPlayer = document.createElement("li");
+        let liText = document.createTextNode(localStorage.key(index));
+        let button = document.createElement("button");
+        button.innerText = "Xóa";
+
+        liPlayer.appendChild(liText);
+        liPlayer.appendChild(button);
+
+        // B4.1.2: Thêm phần tử li vào danh sách đã có
+        listPlayer.appendChild(liPlayer);
+        /* -- END ----------------------------- */
+      }
+    }
+
+    /* ---------- Khởi tạo dữ liệu danh sách cầu thủ ---------- */
+    getAllPlayer();
+
+    // B5: Thêm sự kiện xóa cho từng nút
+    let deletePlayer = document.querySelectorAll("ul#listPlayer li button");
+    // B5.1: Duyệt các nốt
+    for (let index = 0; index < deletePlayer.length; index++) {
+      // B5.2: Thêm sự kiện cho các nút
+      deletePlayer[index].addEventListener("click", function () {
+        // B5.3: Lấy ra key tương ứng
+        let keyPlayer = deletePlayer[index].previousSibling;
+        // B5.4: Xóa phần tử khỏi localStorage
+        localStorage.removeItem(localStorage.key(keyPlayer));
+        // B5.5: Xóa khỏi giao diện
+        console.log(deletePlayer[index]);
+        deletePlayer[index].parentNode.outerHTML = "";
+      });
+    }
+  </script>
+</html>

@@ -13,7 +13,7 @@
 
     <div class="grid">
   
-      <form action="/JS/SS18-TL/page/actionPage.html" method="get" class="form login">
+      <form action="/JS/SS18-TL/page/actionPage.html" method="get" class="form login" id="signIn">
   
         <div class="form__field">
           <label for="login__username"><svg class="icon">
@@ -29,9 +29,11 @@
           <input id="login__password" type="password" name="password" class="form__input" placeholder="Password" required>
           <span><button type="button" id="btnPassword" class="button"><i id="iconEye" class="fa-regular fa-eye-slash"></i></button></span>
         </div>
+
+        <div id="result"></div>
   
         <div class="form__field">
-          <input type="submit" value="Sign In">
+          <input type="submit" value="Sign In" onclick="check()" >
         </div>
   
       </form>

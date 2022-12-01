@@ -11,17 +11,18 @@
     <ul id="list">
     </ul>
     <div id="demo"></div>
-    <input type="text" id="input">
+    <input type="text" id="input" placeholder="Nhập tên cầu thủ">
     <button id="btn">Click to add new player</button>
     <script>
         var myInput = document.getElementById('input');
         let btn = document.getElementById('btn');
+        let result = document.getElementById("list");
         let array = [];
+        let i = 1;
         btn.addEventListener('click', function(){
             let li = document.createElement("li");
             let x = document.createElement("input");
             li.innerHTML = myInput.value;
-            let result = document.getElementById("list");
             result.appendChild(li);
             li.appendChild(x);
             console.log(li);
@@ -31,13 +32,13 @@
                 result.removeChild(li);
             })
             array.push(myInput.value);
-            localStorage.setItem("Player", array );
+            console.log(array);
+            localStorage.setItem("Player" + i,myInput.value);
+            // localStorage.setItem("Player", array );
             myInput.value = "";
+            i++;
             // document.getElementById('demo').innerHTML = "Danh sách các cầu thủ đã được thêm: " + localStorage.getItem("Player")
-            // i++;
-            // j++;
         })
-        
     </script>
 </body>
 </html>

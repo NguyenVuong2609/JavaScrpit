@@ -103,40 +103,37 @@ function checkPasswordSpecial() {
 
 // Hàm kiểm tra tổng thể có đăng ký được hay không 
 function registerConfirm(){
-  if (keyPass == false || keyPassConfirm == false) {
-    document.getElementById('signup').onsubmit = function(e){
+  if (keyPass = false || keyPassConfirm == false) {
+    document.getElementById('signUp').onsubmit = function(e){
       e.preventDefault();
-    }
-  }
+    } 
+  } 
 }
 
 // Hàm thêm thành viên
 let MemberList = [];
-function newMember(){
-  class Member {
-    constructor(username, password) {
-      this.username = username;
-      this.password = password;
-    }
+class Member {
+  constructor(username, password) {
+    this.username = username;
+    this.password = password;
   }
+}
+function newMember(){
   let x = document.getElementById('login__username')
   let y = document.getElementById('login__password')
-  let a = new Member(x.value, y.value);
-  MemberList.push(a);
-  console.log(MemberList);
-  creatItem()
+  if (x.value != "" && y.value!= "" && keyPassConfirm == true){
+    let a = new Member(x.value, y.value);
+    MemberList.push(a);
+    console.log(MemberList);
+    localStorage.setItem("Member",JSON.stringify(MemberList))
+    window.location = './login.html'
+  }
   return;
 }
 
-// Hàm lưu dữ liệu lên localStorage 
-function creatItem(){
-  // for (i = 0; i < MemberList.length; i++) {
-  //   localStorage.setItem((i+1), ("ID: " + MemberList[i].username + " Password: " + MemberList[i].password));
-  // }
-  localStorage.setItem("Member", MemberList);
-}
 
 checkID();
 checkPassword();
 confirmedPassword();
 checkPasswordSpecial();
+registerConfirm();

@@ -10,8 +10,9 @@
     <div id="demo"></div>
     <script>
         let x = localStorage.getItem('Member');
-        document.getElementById('demo').innerHTML = x;
         console.log(x);
+        let arr = JSON.parse(x)
+        console.log(arr[0].username); 
     </script>
     </script>
 </body>

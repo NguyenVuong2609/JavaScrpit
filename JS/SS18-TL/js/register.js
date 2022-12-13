@@ -95,8 +95,10 @@ function checkPasswordSpecial() {
     let result = regex.test(x.value);
     if ( result == true) {
       document.getElementById("checkPassword1").innerHTML = "";
+      keyPass == true;
     } else {
       document.getElementById("checkPassword1").innerHTML = "Mật khẩu phải chứa ít nhất 1 ký tự viết hoa, 1 ký tự đặc biệt và 1 ký tự số.";
+      keyPass = false;
     }
   })
 }
@@ -121,7 +123,7 @@ class Member {
 function newMember(){
   let x = document.getElementById('login__username')
   let y = document.getElementById('login__password')
-  if (x.value != "" && y.value!= "" && keyPassConfirm == true){
+  if (x.value != "" && y.value!= "" && keyPassConfirm == true && keyPass == true){
     let a = new Member(x.value, y.value);
     MemberList.push(a);
     console.log(MemberList);

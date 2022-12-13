@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1 {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 40px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.input {
+    text-align: center;
+    margin-top: 50px;
+}
+.input input {
+    padding: 8px;
+}
+#saveTask,#saveEditTask {
+    background-color: blue;
+    color: white;
+    border-radius: 6px;
+    border: none;
+}
+#bodyContent {
+    margin-top: 50px;
+    font-size: 23px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    width: 100%;
+    text-align: center;
+}
+table {
+    border: 1px solid black;
+    left: 23%;
+    padding: 5px;
+    width: 800px;
+    margin-left: 300px;
+}
+table td,th {
+    border-bottom: 1px solid black;
+    padding: 6px;
+}
+table input {
+    color: white;
+    border-radius: 6px;
+    border: none;
+    padding: 5px;
+}
+.editTask {
+    background-color: gold;
+}
+.deleteTask {
+    background-color: #dc4c64;
+}
+.finishTask {
+    background-color: #14a44d;
+}
+#result {
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#total {
+    color: violet;
+}
+#notYet {
+    color: orange;
+}
+#done {
+    color: green;
+}
+#fail {
+    color: red;
+}

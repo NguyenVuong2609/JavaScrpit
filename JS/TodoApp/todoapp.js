@@ -3,7 +3,7 @@ function showHeader() {
     data = `<h1>To Do App</h1>
     <div class="input">
     <input type="text" placeholder="Enter a task here" id="nameTask">
-    <input type="button" id="saveTask" value="SAVE"><br>
+    <input type="button" id="saveTask" value="SAVE"><br><br>
     <input type="text" placeholder="" id="editTask">
     <input type="button" id="saveEditTask" value="EDIT">
     </div>
@@ -36,10 +36,9 @@ if (taskInfo != "") {
     todoArray.push({
       name: taskInfo,
       status: "Not running",
-      id: todoArray.length + 1
+      id: todoArray.length
   })
 }
-console.log(todoArray);
 document.getElementById("nameTask").value = "";
 localStorage.setItem("todoTable", JSON.stringify(todoArray));
 if (todoArray != null) {
@@ -77,6 +76,8 @@ function showBody(){
     }
     document.getElementById("todoTable").innerHTML = data;
 }
+
+//? Các sự kiện nút //
 function deleteTask(id){
     let myList = JSON.parse(localStorage.getItem("todoTable"));
     if (myList.length > 1){
@@ -84,12 +85,13 @@ function deleteTask(id){
             if (myList[i].id == id){
                 myList.splice(i, 1);
             }
-            myList[i].id =  myList[i].id -1;
+        }
+        for (let j = 0; j < myList.length; j++){
+            myList[j].id =  j;
         }
     } else {
         myList= [];
     }
-    console.log(myList);
     localStorage.setItem("todoTable", JSON.stringify(myList));
     showBody();
     resultList()
@@ -119,6 +121,8 @@ function finishTask(id) {
     showBody();
     resultList()
 }
+
+//? Hiển thị tiến trình, số lượng công việc //
 function resultList(){
     let myList = JSON.parse(localStorage.getItem("todoTable"));
     let notYet = 0;
@@ -141,16 +145,15 @@ function resultList(){
     <div id="fail">Số công việc đã thất bại: ${fail}</div>`
     document.getElementById('result').innerHTML = data;
 }
+
+//? Sửa dữ liệu //
 let btnEditData = document.getElementById('saveEditTask');
 btnEditData.addEventListener('click', () =>{
-    console.log("123");
-    console.log(key);
     let myList = JSON.parse(localStorage.getItem("todoTable"));
     let newData = document.getElementById('editTask')
     for (let i=0; i<myList.length; i++){
         if (key == myList[i].id){
             myList[i].name = newData.value;
-            console.log(myList[i].name);
         }
     }
     document.getElementById('editTask').value= "";

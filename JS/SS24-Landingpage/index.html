@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LandingPages</title>
+    <link rel="stylesheet" href="/JS/SS24-Landingpage/css/bootstrap.css" />
+    <link rel="stylesheet" href="/JS/SS24-Landingpage/style.css" />
+    <script src="/JS/SS24-Landingpage/js/bootstrap.js"></script>
+    <script src="/JS/SS24-Landingpage/jquery-3.6.1.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-white header">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <a class="navbar-brand mt-2 mt-lg-0" href="#">
+              <img
+                src="/JS/SS24-Landingpage/pokeball.jpg"
+                height="15"
+                alt="Pokemon Logo"
+                loading="lazy"
+              />
+            </a>
+            <!-- Left links -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="https://pokemonrevolution.net/home"
+                  >Discover</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.pokemoncenter.com/"
+                  >Shop</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="https://pokemonrevolution.net/forum/index.php"
+                  >Support</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Right elements -->
+          <div class="d-flex align-items-center">
+            <a class="link-secondary me-3" href="https://prowiki.info/">
+              <i class="bi bi-search"></i>
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <div
+        id="carouselExampleDark"
+        class="carousel carousel-dark slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleDark"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleDark"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleDark"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="5000">
+            <img src="/JS/SS24-Bootstrap/black.png" alt="" />
+            <div class="carousel-caption d-none d-md-block">
+              <a href="" class="text-light"
+                >Free returns on eligible Beats until 1/8/23</a
+              >
+            </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="/JS/SS24-Bootstrap/black.png" alt="" />
+            <div class="carousel-caption d-none d-md-block">
+              <a href="" class="text-light"
+                >Order by 12/21 for free delivery by 12/23</a
+              >
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="/JS/SS24-Bootstrap/black.png" alt="" />
+            <div class="carousel-caption d-none d-md-block">
+              <a href="" class="text-light">Fast and free delivery</a>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleDark"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleDark"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="">Next</span>
+        </button>
+      </div>
+
+      <!--! Video  -->
+      <div
+        class="embed-responsive embed-responsive-16by9 video-main slideRight position-relative"
+      >
+        <video
+          playsinline="playsinline"
+          autoplay="autoplay"
+          muted="muted"
+          loop="loop"
+          class="position-relative"
+        >
+          <source
+            src="/JS/SS24-Landingpage/Pokemon Unite - Opening Cutscene.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <div class="container h-100">
+          <div class="d-flex h-100 text-center align-items-center">
+            <div class="w-100 content-video text-danger position-absolute">
+              <h1 class="display-2"><b>Pokemon Center</b></h1>
+              <p class="lead mb-0">Power by Poke Pro</p>
+              <button type="button" class="btn btn-rounded">New Account</button>
+              <button
+                type="button"
+                class="btn btn-rounded"
+                data-bs-toggle="modal"
+                data-bs-target="#myModal"
+              >
+                Let's go!
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- The Modal -->
+        <div class="modal fade" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Let's go Pikachu!</h4>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                ></button>
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body">Have fun!</div>
+
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--! Product -->
+      <div class="col-12 productData row position-relative">
+        <div class="col-12"><h2 class="display-2">Products</h2></div>
+        <div class="card col-12 col-sm-6 col-xl-3 box">
+          <img
+            src="/JS/SS24-Landingpage/IMG/Arcanine.jpg"
+            class="card-img-top"
+            alt="Fissure in Sandstone"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Arcanine</h5>
+            <p class="card-text">
+              Arcanine is not originatively obtainable anywhere; the only
+              methods of obtaining it are by trading for one or evolving
+              Growlithe via usage of a Fire Stone.
+            </p>
+            <a href="#!" class="btn btn-primary">Get it!</a>
+          </div>
+        </div>
+        <div class="card col-12 col-sm-6 col-xl-3 box">
+          <img
+            src="/JS/SS24-Landingpage/IMG/meowtwo.jpg"
+            class="card-img-top"
+            alt="Fissure in Sandstone"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Mewtwo</h5>
+            <p class="card-text">
+              Mewtwo is a Psychic type Pokémon. It can Mega Evolve into Mega
+              Mewtwo X or Mega Mewtwo Y via exposure to the Mewtwonite X or
+              Mewtwonite Y, respectively.
+            </p>
+            <a href="#!" class="btn btn-primary">Get it!</a>
+          </div>
+        </div>
+        <div class="card col-12 col-sm-6 col-xl-3 box">
+          <img
+            src="/JS/SS24-Landingpage/IMG/pokemon-deluxe-collectors-figure-pikachu-90869_f5837-500x500.jpg"
+            class="card-img-top"
+            alt="Fissure in Sandstone"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Pikachu</h5>
+            <p class="card-text">
+              Pikachu is an Electric-type Pokémon. Having evolved from its
+              baby-stage pre-evolution in Pichu, it evolves into its final
+              evolutionary stage in Raichu via usage of a Thunder Stone.
+            </p>
+            <a href="#!" class="btn btn-primary">Get it!</a>
+          </div>
+        </div>
+        <div class="card col-12 col-sm-6 col-xl-3 box">
+          <img
+            src="/JS/SS24-Landingpage/IMG/bulba.jpg"
+            class="card-img-top"
+            alt="Fissure in Sandstone"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Bulbasaur</h5>
+            <p class="card-text">
+              Bulbasaur is a Grass- and Poison-type Pokémon. It evolves into
+              Ivysaur at level 16, which then evolves into its final-stage form
+              in Venusaur at level 32.
+            </p>
+            <a href="#!" class="btn btn-primary">Get it!</a>
+          </div>
+        </div>
+      </div>
+
+      <!--! Footer -->
+      <div class="col-12 footer">
+        <div class="display-5"><a href="" class="me-4 text-reset ">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="bi bi-twitter"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="bi bi-google"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="bi bi-linkedin"></i>
+          </a>
+          <a href="https://github.com/NguyenVuong2609" class="me-4 text-reset">
+            <i class="bi bi-github"></i>
+          </a>
+        </div>
+        <div class="col-12 copyright">Designed by <span class="text-danger">Vuong Nguyen</span></div>
+      </div>
+    </div>
+  </body>
+</html>

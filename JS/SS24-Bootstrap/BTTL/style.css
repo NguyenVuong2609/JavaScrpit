@@ -10,7 +10,7 @@
 .container img:hover{
     cursor: pointer;
     opacity: 0.5;
-    box-shadow: 5px 5px darksalmon;
+    box-shadow: 5px 5px 5px darksalmon;
 }
 .container .row {
     text-align: center;
